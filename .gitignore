@@ -1,0 +1,20 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/VideoLandia/v16/Server/sqlite3/db.lock
+/.vs/VideoLandia/v16/Server/sqlite3/storage.ide
+/.vs/VideoLandia/v16/Server/sqlite3/storage.ide-shm
+/.vs/VideoLandia/v16/Server/sqlite3/storage.ide-wal
+/VideoLandia/bin/Debug/VideoLandia.exe
+/VideoLandia/bin/Debug/VideoLandia.exe.config
+/VideoLandia/bin/Debug/VideoLandia.pdb
+/VideoLandia/obj/Debug/VideoLandia.Properties.Resources.resources
+/VideoLandia/obj/Debug/VideoLandia.pdb
+/VideoLandia/obj/Debug/VideoLandia.exe
+/VideoLandia/obj/Debug/VideoLandia.csprojAssemblyReference.cache
+/VideoLandia/obj/Debug/VideoLandia.csproj.GenerateResource.cache
+/VideoLandia/obj/Debug/VideoLandia.csproj.FileListAbsolute.txt
+/VideoLandia/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/VideoLandia/obj/Debug/DesignTimeResolveAssemblyReferences.cache
+/.vs/VideoLandia/v16/.suo
