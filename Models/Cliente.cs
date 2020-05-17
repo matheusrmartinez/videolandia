@@ -8,6 +8,5 @@ namespace Models
 {
     public class Cliente : Pessoa
     {
-        public int CodigoCliente { get; set; }
     }
 }

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{90480844-F058-4B49-BB2F-BCF2F5B47CCC}</ProjectGuid>
+    <ProjectGuid>{D68C918B-C694-42B2-893C-F112FEA27190}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>GUI</RootNamespace>
-    <AssemblyName>GUI</AssemblyName>
+    <RootNamespace>GUI_</RootNamespace>
+    <AssemblyName>GUI_</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,62 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmCliente.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCliente.Designer.cs">
-      <DependentUpon>frmCliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmDevolucao.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDevolucao.Designer.cs">
-      <DependentUpon>frmDevolucao.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmFuncionario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmFuncionario.Designer.cs">
-      <DependentUpon>frmFuncionario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmGeneroFilme.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmGeneroFilme.Designer.cs">
-      <DependentUpon>frmGeneroFilme.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmItem.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmItem.Designer.cs">
-      <DependentUpon>frmItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmLocacao.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLocacao.Designer.cs">
-      <DependentUpon>frmLocacao.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmPrincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmPrincipal.Designer.cs">
-      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmCliente.resx">
-      <DependentUpon>frmCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmFuncionario.resx">
-      <DependentUpon>frmFuncionario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmItem.resx">
-      <DependentUpon>frmItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmPrincipal.resx">
-      <DependentUpon>frmPrincipal.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -123,16 +75,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{9eafcc33-a54e-424f-9099-966e287a38e2}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Models\Models.csproj">
-      <Project>{db832226-162d-49e4-8034-12d1d6cc748b}</Project>
-      <Name>Models</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

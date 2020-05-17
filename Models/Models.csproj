@@ -42,10 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Artista.cs" />
-    <Compile Include="Ator.cs" />
     <Compile Include="Devolucao.cs" />
     <Compile Include="Cliente.cs" />
-    <Compile Include="Diretor.cs" />
     <Compile Include="Funcionario.cs" />
     <Compile Include="GeneroFilme.cs" />
     <Compile Include="Item.cs" />

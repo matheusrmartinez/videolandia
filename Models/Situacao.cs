@@ -8,6 +8,7 @@ namespace Models
 {
     public class Situacao
     {
+        public int CodigoSituacao { get; set; }
         public string NomeCliente { get; set; }
         public DateTime DataRetirada { get; set; }
         public DateTime DataPrevista { get; set; }

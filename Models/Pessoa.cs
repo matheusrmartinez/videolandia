@@ -8,6 +8,8 @@ namespace Models
 {
     public class Pessoa
     {
+        public int CodigoPessoa { get; set; }
+        public char Funcionario { get; set; }
         public string Nome { get; set; }
         public DateTime DataNascimento { get; set; }
         public char Sexo { get; set; }
@@ -21,6 +23,6 @@ namespace Models
         public string Telefone { get; set; }
         public string Celular { get; set; }
         public string Email { get; set; }
-        public string Status { get; set; }
+        public string SituacaoPagamentos { get; set; }
     }
 }

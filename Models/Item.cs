@@ -11,11 +11,10 @@ namespace Models
         public List<GeneroFilme> GeneroFilmes { get; set; }
         public int Ano { get; set; }
         public string Tipo { get; set; }
-        public double Preco { get; set; }
+        public decimal Preco { get; set; }
         public DateTime DataAquirida { get; set; }
-        public double PrecoDeCusto { get; set; }
+        public decimal Custo { get; set; }
         public Situacao SituacaoFilme { get; set; }
-        public List<Ator> Atores { get; set; }
-        public Diretor Diretor { get; set; }
+        public List<Artista> Artistas { get; set; } 
     }
 }
