@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class frmFuncionario
+    partial class frmCadastroFuncionario
     {
         /// <summary>
         /// Required designer variable.

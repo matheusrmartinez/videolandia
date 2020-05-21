@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frmItem : Form
+    public partial class frmCadastroDevolucao : Form
     {
-        public frmItem()
+        public frmCadastroDevolucao()
         {
             InitializeComponent();
         }
-
     }
 }

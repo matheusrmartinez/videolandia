@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI
@@ -19,16 +12,44 @@ namespace GUI
 
         private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCliente frmCliente = new frmCliente();
+            frmCadastroCliente frmCliente = new frmCadastroCliente();
             frmCliente.MdiParent = this;
             frmCliente.Show();
         }
 
         private void funcionárioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmFuncionario frmFuncionario = new frmFuncionario();
+            frmCadastroFuncionario frmFuncionario = new frmCadastroFuncionario();
             frmFuncionario.MdiParent = this;
             frmFuncionario.Show();
+        }
+
+        private void gêneroFilmeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroGenero frmCadastroGenero = new frmCadastroGenero();
+            frmCadastroGenero.MdiParent = this;
+            frmCadastroGenero.Show();
+        }
+
+        private void personagensFilmeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroDePersonagens frmCadastroDePersonagens = new frmCadastroDePersonagens();
+            frmCadastroDePersonagens.MdiParent = this;
+            frmCadastroDePersonagens.Show();
+        }
+
+        private void artistasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroArtista frmCadastroArtista = new frmCadastroArtista();
+            frmCadastroArtista.MdiParent = this;
+            frmCadastroArtista.Show();
+        }
+
+        private void itemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroItem frmCadastroItem = new frmCadastroItem();
+            frmCadastroItem.MdiParent = this;
+            frmCadastroItem.Show();
         }
     }
 }

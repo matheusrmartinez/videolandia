@@ -46,41 +46,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmCliente.cs">
+    <Compile Include="frmCadastroArtista.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCliente.Designer.cs">
-      <DependentUpon>frmCliente.cs</DependentUpon>
+    <Compile Include="frmCadastroArtista.Designer.cs">
+      <DependentUpon>frmCadastroArtista.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDevolucao.cs">
+    <Compile Include="frmCadastroDePersonagens.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDevolucao.Designer.cs">
-      <DependentUpon>frmDevolucao.cs</DependentUpon>
+    <Compile Include="frmCadastroDePersonagens.Designer.cs">
+      <DependentUpon>frmCadastroDePersonagens.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmFuncionario.cs">
+    <Compile Include="frmCadastroGenero.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmFuncionario.Designer.cs">
-      <DependentUpon>frmFuncionario.cs</DependentUpon>
+    <Compile Include="frmCadastroGenero.Designer.cs">
+      <DependentUpon>frmCadastroGenero.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmGeneroFilme.cs">
+    <Compile Include="frmCadastroCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmGeneroFilme.Designer.cs">
-      <DependentUpon>frmGeneroFilme.cs</DependentUpon>
+    <Compile Include="frmCadastroCliente.Designer.cs">
+      <DependentUpon>frmCadastroCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmItem.cs">
+    <Compile Include="frmCadastroDevolucao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmItem.Designer.cs">
-      <DependentUpon>frmItem.cs</DependentUpon>
+    <Compile Include="frmCadastroDevolucao.Designer.cs">
+      <DependentUpon>frmCadastroDevolucao.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLocacao.cs">
+    <Compile Include="frmCadastroFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLocacao.Designer.cs">
-      <DependentUpon>frmLocacao.cs</DependentUpon>
+    <Compile Include="frmCadastroFuncionario.Designer.cs">
+      <DependentUpon>frmCadastroFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCadastroItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastroItem.Designer.cs">
+      <DependentUpon>frmCadastroItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCadastroLocacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastroLocacao.Designer.cs">
+      <DependentUpon>frmCadastroLocacao.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
@@ -90,14 +102,29 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmCliente.resx">
-      <DependentUpon>frmCliente.cs</DependentUpon>
+    <EmbeddedResource Include="frmCadastroArtista.resx">
+      <DependentUpon>frmCadastroArtista.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmFuncionario.resx">
-      <DependentUpon>frmFuncionario.cs</DependentUpon>
+    <EmbeddedResource Include="frmCadastroDePersonagens.resx">
+      <DependentUpon>frmCadastroDePersonagens.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmItem.resx">
-      <DependentUpon>frmItem.cs</DependentUpon>
+    <EmbeddedResource Include="frmCadastroDevolucao.resx">
+      <DependentUpon>frmCadastroDevolucao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCadastroGenero.resx">
+      <DependentUpon>frmCadastroGenero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCadastroLocacao.resx">
+      <DependentUpon>frmCadastroLocacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCadastroCliente.resx">
+      <DependentUpon>frmCadastroCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCadastroFuncionario.resx">
+      <DependentUpon>frmCadastroFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCadastroItem.resx">
+      <DependentUpon>frmCadastroItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>

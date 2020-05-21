@@ -19,6 +19,7 @@ Pais varchar(50),
 CaminhoFoto varchar(200)
 )
 
+
 CREATE TABLE Situacoes
 (
 CodigoSituacao int PRIMARY KEY IDENTITY,
@@ -91,4 +92,29 @@ DataEntrega DATE,
 ValorAPagar DECIMAL(19,6),
 ValorPago DECIMAL (19,6),
 FOREIGN KEY (CodigoLocacao) REFERENCES Locacoes (CodigoLocacao)
+)
+
+CREATE TABLE FilmesGeneros
+(
+CodigoItem int,
+CodigoGenero int,
+FOREIGN KEY (CodigoItem) REFERENCES Itens (CodigoItem),
+FOREIGN KEY (CodigoGenero) REFERENCES GenerosFilmes (CodigoGenero) 
+)
+
+CREATE TABLE ArtistasFilme
+(
+CodigoItem int,
+CodigoArtista int,
+FOREIGN KEY (CodigoItem) REFERENCES Itens (CodigoItem),
+FOREIGN KEY (CodigoArtista) REFERENCES Artistas (CodigoArtista)
+)
+
+CREATE TABLE PersonagensFilme
+(
+CodigoArtista int,
+CodigoItem int,
+NomePersonagem varchar (50) PRIMARY KEY,
+FOREIGN KEY (CodigoArtista) REFERENCES Artistas (CodigoArtista),
+FOREIGN KEY (CodigoItem) REFERENCES Itens (CodigoItem)
 )

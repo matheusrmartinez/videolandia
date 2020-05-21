@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class frmCliente
+    partial class frmCadastroCliente
     {
         /// <summary>
         /// Required designer variable.

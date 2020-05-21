@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class frmItem
+    partial class frmCadastroItem
     {
         /// <summary>
         /// Required designer variable.
@@ -51,7 +51,6 @@
             this.dgvItens = new System.Windows.Forms.DataGridView();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
@@ -59,17 +58,29 @@
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.NomeAtor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomePersonagem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cmbGenero4 = new System.Windows.Forms.ComboBox();
+            this.cmbGenero3 = new System.Windows.Forms.ComboBox();
+            this.cmbGenero2 = new System.Windows.Forms.ComboBox();
+            this.cmbGenero8 = new System.Windows.Forms.ComboBox();
+            this.cmbGenero7 = new System.Windows.Forms.ComboBox();
+            this.cmbGenero6 = new System.Windows.Forms.ComboBox();
+            this.cmbGenero5 = new System.Windows.Forms.ComboBox();
+            this.cmbGenero1 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItens)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox1
@@ -228,7 +239,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvItens);
-            this.groupBox1.Location = new System.Drawing.Point(15, 367);
+            this.groupBox1.Location = new System.Drawing.Point(15, 485);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(461, 223);
             this.groupBox1.TabIndex = 13;
@@ -243,7 +254,6 @@
             this.dgvItens.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Codigo,
             this.Nome,
-            this.CPF,
             this.Status});
             this.dgvItens.Location = new System.Drawing.Point(6, 30);
             this.dgvItens.Name = "dgvItens";
@@ -267,13 +277,6 @@
             this.Nome.Name = "Nome";
             this.Nome.ReadOnly = true;
             // 
-            // CPF
-            // 
-            this.CPF.DataPropertyName = "CodigoGenero";
-            this.CPF.HeaderText = "Gênero";
-            this.CPF.Name = "CPF";
-            this.CPF.ReadOnly = true;
-            // 
             // Status
             // 
             this.Status.DataPropertyName = "Ano";
@@ -283,7 +286,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(230, 315);
+            this.btnCancelar.Location = new System.Drawing.Point(229, 446);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(65, 23);
             this.btnCancelar.TabIndex = 9;
@@ -292,7 +295,7 @@
             // 
             // btnRemover
             // 
-            this.btnRemover.Location = new System.Drawing.Point(158, 315);
+            this.btnRemover.Location = new System.Drawing.Point(158, 446);
             this.btnRemover.Name = "btnRemover";
             this.btnRemover.Size = new System.Drawing.Size(65, 23);
             this.btnRemover.TabIndex = 10;
@@ -301,7 +304,7 @@
             // 
             // btnAtualizar
             // 
-            this.btnAtualizar.Location = new System.Drawing.Point(87, 315);
+            this.btnAtualizar.Location = new System.Drawing.Point(87, 446);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(65, 23);
             this.btnAtualizar.TabIndex = 11;
@@ -310,7 +313,7 @@
             // 
             // btnAdicionar
             // 
-            this.btnAdicionar.Location = new System.Drawing.Point(15, 315);
+            this.btnAdicionar.Location = new System.Drawing.Point(15, 446);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(65, 23);
             this.btnAdicionar.TabIndex = 12;
@@ -322,18 +325,38 @@
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Location = new System.Drawing.Point(495, 15);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(451, 178);
+            this.groupBox2.Size = new System.Drawing.Size(364, 178);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Atores Participantes:";
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 20);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NomeAtor,
+            this.NomePersonagem});
+            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(445, 150);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(344, 146);
+            this.dataGridView1.TabIndex = 7;
+            // 
+            // NomeAtor
+            // 
+            this.NomeAtor.HeaderText = "Nome Ator";
+            this.NomeAtor.Name = "NomeAtor";
+            this.NomeAtor.ReadOnly = true;
+            this.NomeAtor.Width = 150;
+            // 
+            // NomePersonagem
+            // 
+            this.NomePersonagem.HeaderText = "Nome do Personagem";
+            this.NomePersonagem.Name = "NomePersonagem";
+            this.NomePersonagem.ReadOnly = true;
+            this.NomePersonagem.Width = 150;
             // 
             // label11
             // 
@@ -364,7 +387,7 @@
             this.groupBox3.Controls.Add(this.pictureBox1);
             this.groupBox3.Location = new System.Drawing.Point(495, 210);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(451, 380);
+            this.groupBox3.Size = new System.Drawing.Size(451, 498);
             this.groupBox3.TabIndex = 17;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Capa do Filme: ";
@@ -373,15 +396,98 @@
             // 
             this.pictureBox1.Location = new System.Drawing.Point(0, 20);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(445, 354);
+            this.pictureBox1.Size = new System.Drawing.Size(445, 478);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // frmItem
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.cmbGenero4);
+            this.groupBox4.Controls.Add(this.cmbGenero3);
+            this.groupBox4.Controls.Add(this.cmbGenero2);
+            this.groupBox4.Controls.Add(this.cmbGenero8);
+            this.groupBox4.Controls.Add(this.cmbGenero7);
+            this.groupBox4.Controls.Add(this.cmbGenero6);
+            this.groupBox4.Controls.Add(this.cmbGenero5);
+            this.groupBox4.Controls.Add(this.cmbGenero1);
+            this.groupBox4.Location = new System.Drawing.Point(15, 311);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(280, 129);
+            this.groupBox4.TabIndex = 18;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Gênero Filme: ";
+            // 
+            // cmbGenero4
+            // 
+            this.cmbGenero4.FormattingEnabled = true;
+            this.cmbGenero4.Location = new System.Drawing.Point(7, 101);
+            this.cmbGenero4.Name = "cmbGenero4";
+            this.cmbGenero4.Size = new System.Drawing.Size(121, 21);
+            this.cmbGenero4.TabIndex = 0;
+            // 
+            // cmbGenero3
+            // 
+            this.cmbGenero3.FormattingEnabled = true;
+            this.cmbGenero3.Location = new System.Drawing.Point(7, 74);
+            this.cmbGenero3.Name = "cmbGenero3";
+            this.cmbGenero3.Size = new System.Drawing.Size(121, 21);
+            this.cmbGenero3.TabIndex = 0;
+            // 
+            // cmbGenero2
+            // 
+            this.cmbGenero2.FormattingEnabled = true;
+            this.cmbGenero2.Location = new System.Drawing.Point(7, 47);
+            this.cmbGenero2.Name = "cmbGenero2";
+            this.cmbGenero2.Size = new System.Drawing.Size(121, 21);
+            this.cmbGenero2.TabIndex = 0;
+            // 
+            // cmbGenero8
+            // 
+            this.cmbGenero8.FormattingEnabled = true;
+            this.cmbGenero8.Location = new System.Drawing.Point(147, 100);
+            this.cmbGenero8.Name = "cmbGenero8";
+            this.cmbGenero8.Size = new System.Drawing.Size(121, 21);
+            this.cmbGenero8.TabIndex = 0;
+            // 
+            // cmbGenero7
+            // 
+            this.cmbGenero7.FormattingEnabled = true;
+            this.cmbGenero7.Location = new System.Drawing.Point(147, 73);
+            this.cmbGenero7.Name = "cmbGenero7";
+            this.cmbGenero7.Size = new System.Drawing.Size(121, 21);
+            this.cmbGenero7.TabIndex = 0;
+            // 
+            // cmbGenero6
+            // 
+            this.cmbGenero6.FormattingEnabled = true;
+            this.cmbGenero6.Location = new System.Drawing.Point(147, 46);
+            this.cmbGenero6.Name = "cmbGenero6";
+            this.cmbGenero6.Size = new System.Drawing.Size(121, 21);
+            this.cmbGenero6.TabIndex = 0;
+            // 
+            // cmbGenero5
+            // 
+            this.cmbGenero5.FormattingEnabled = true;
+            this.cmbGenero5.Location = new System.Drawing.Point(147, 19);
+            this.cmbGenero5.Name = "cmbGenero5";
+            this.cmbGenero5.Size = new System.Drawing.Size(121, 21);
+            this.cmbGenero5.TabIndex = 0;
+            // 
+            // cmbGenero1
+            // 
+            this.cmbGenero1.FormattingEnabled = true;
+            this.cmbGenero1.Location = new System.Drawing.Point(7, 20);
+            this.cmbGenero1.Name = "cmbGenero1";
+            this.cmbGenero1.Size = new System.Drawing.Size(121, 21);
+            this.cmbGenero1.TabIndex = 0;
+            this.cmbGenero1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cmbGenero1_MouseClick);
+            // 
+            // frmCadastroItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(959, 602);
+            this.ClientSize = new System.Drawing.Size(959, 719);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.groupBox2);
@@ -411,7 +517,7 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Name = "frmItem";
+            this.Name = "frmCadastroItem";
             this.Text = "Cadastro de Item";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItens)).EndInit();
@@ -419,6 +525,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -447,20 +554,30 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvItens;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CPF;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnRemover;
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.ComboBox cmbGenero4;
+        private System.Windows.Forms.ComboBox cmbGenero3;
+        private System.Windows.Forms.ComboBox cmbGenero2;
+        private System.Windows.Forms.ComboBox cmbGenero8;
+        private System.Windows.Forms.ComboBox cmbGenero7;
+        private System.Windows.Forms.ComboBox cmbGenero6;
+        private System.Windows.Forms.ComboBox cmbGenero5;
+        private System.Windows.Forms.ComboBox cmbGenero1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomeAtor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomePersonagem;
     }
 }

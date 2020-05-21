@@ -12,21 +12,21 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frmFuncionario : Form
+    public partial class frmCadastroCliente : Form
     {
         PessoaDAL pessoaDAL;
-        public frmFuncionario()
+        public frmCadastroCliente()
         {
             pessoaDAL = new PessoaDAL();
             InitializeComponent();
         }
 
-        private void frmFuncionario_Load(object sender, EventArgs e)
+        private void frmCliente_Load(object sender, EventArgs e)
         {
             TrocarEnable(true);
-            var funcionarios = pessoaDAL.ListarTodosFuncionarios();
-            dgvFuncionarios.DataSource = funcionarios;
-            OcultarCamposDaGrid(dgvFuncionarios);
+            var clientes = pessoaDAL.ListarTodosClientes();
+            dgvClientes.DataSource = clientes;
+            OcultarCamposDaGrid(dgvClientes);
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace GUI
             try
             {
                 pessoa = new Pessoa();
-                pessoa.Funcionario = 'Y';
+                pessoa.Funcionario = 'N';
                 pessoa.Nome = txtNome.Text;
                 pessoa.DataNascimento = Convert.ToDateTime(dtpDtNascimento.Text);
                 pessoa.Sexo = Convert.ToChar(cmbSexo.Text);
@@ -54,14 +54,15 @@ namespace GUI
             }
             catch (Exception)
             {
+
                 throw new Exception("Falha ao preencher os dados");
             }
 
             try
             {
                 pessoaDAL.AdicionarPessoa(pessoa);
-                dgvFuncionarios.DataSource = pessoaDAL.ListarTodosFuncionarios();
-                OcultarCamposDaGrid(dgvFuncionarios);
+                dgvClientes.DataSource = pessoaDAL.ListarTodosClientes();
+                OcultarCamposDaGrid(dgvClientes);
                 LimparDadosDaTela(string.Empty);
                 MessageBox.Show("Registro adicionado com sucesso!");
             }
@@ -73,14 +74,14 @@ namespace GUI
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            var codigoPessoa = Convert.ToInt32(txtCodigoFuncionario.Text);
+            var codigoPessoa = Convert.ToInt32(txtCodigoCliente.Text);
             var pessoa = PreencherPessoaDeAcordoComDadosDaTela(codigoPessoa);
 
             try
             {
                 pessoaDAL.AtualizarPessoa(pessoa);
-                dgvFuncionarios.DataSource = pessoaDAL.ListarTodosFuncionarios();
-                OcultarCamposDaGrid(dgvFuncionarios);
+                dgvClientes.DataSource = pessoaDAL.ListarTodosClientes();
+                OcultarCamposDaGrid(dgvClientes);
                 LimparDadosDaTela(string.Empty);
                 TrocarEnable(true);
                 ControlarComponentesDaTela(true);
@@ -94,12 +95,12 @@ namespace GUI
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
-            var codigoPessoa = Convert.ToInt32(txtCodigoFuncionario.Text);
+            var codigoPessoa = Convert.ToInt32(txtCodigoCliente.Text);
             try
             {
                 pessoaDAL.RemoverPessoa(codigoPessoa);
-                dgvFuncionarios.DataSource = pessoaDAL.ListarTodosFuncionarios();
-                OcultarCamposDaGrid(dgvFuncionarios);
+                dgvClientes.DataSource = pessoaDAL.ListarTodosClientes();
+                OcultarCamposDaGrid(dgvClientes);
                 TrocarEnable(false);
                 LimparDadosDaTela(string.Empty);
                 MessageBox.Show("Registro removido com sucesso!");
@@ -118,32 +119,9 @@ namespace GUI
             ControlarComponentesDaTela(true);
         }
 
-        private void Pesquisar_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(txtCodigoFuncionario.Text))
-            {
-                int.TryParse(txtCodigoFuncionario.Text, out int codigoFuncionario);
-                var pessoa = pessoaDAL.PesquisarFuncionario(codigoFuncionario);
-
-                if (pessoa == null)
-                {
-                    MessageBox.Show("Registro não encontrado.");
-                    LimparDadosDaTela(string.Empty);
-                    TrocarEnable(true);
-                    ControlarComponentesDaTela(true);
-                    return;
-                }
-
-                PreencherATela(pessoa);
-                ControlarComponentesDaTela(false);
-                TrocarEnable(false);
-
-            }
-        }
-
         private void LimparDadosDaTela(string limpar)
         {
-            txtCodigoFuncionario.Text = limpar;
+            txtCodigoCliente.Text = limpar;
             txtNome.Text = limpar;
             dtpDtNascimento.Text = limpar;
             cmbSexo.Text = limpar;
@@ -166,9 +144,29 @@ namespace GUI
             btnAtualizar.Enabled = !habilitarEdicao;
         }
 
+        private void Pesquisar_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtCodigoCliente.Text))
+            {
+                int.TryParse(txtCodigoCliente.Text, out int codigoCliente);
+                var pessoa = pessoaDAL.PesquisarCliente(codigoCliente);
+                if (pessoa == null)
+                {
+                    MessageBox.Show("Registro não encontrado.");
+                    LimparDadosDaTela(string.Empty);
+                    TrocarEnable(true);
+                    ControlarComponentesDaTela(true);
+                    return;
+                }
+                PreencherATela(pessoa);
+                ControlarComponentesDaTela(false);
+                TrocarEnable(false);
+            }
+        }
+
         private void PreencherATela(Pessoa pessoa)
         {
-            txtCodigoFuncionario.Text = pessoa.CodigoPessoa.ToString();
+            txtCodigoCliente.Text = pessoa.CodigoPessoa.ToString();
             txtNome.Text = pessoa.Nome;
             dtpDtNascimento.Text = pessoa.DataNascimento.ToString();
             cmbSexo.Text = pessoa.Sexo.ToString();
@@ -224,9 +222,7 @@ namespace GUI
 
         private void ControlarComponentesDaTela(bool enabled)
         {
-            txtCodigoFuncionario.Enabled = enabled;
+            txtCodigoCliente.Enabled = enabled;
         }
-
-
     }
 }

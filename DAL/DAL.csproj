@@ -42,6 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArtistaDAL.cs" />
+    <Compile Include="AtoresDAL.cs" />
+    <Compile Include="DiretorDAL.cs" />
+    <Compile Include="GeneroFilmeDAL.cs" />
+    <Compile Include="ItemAtorFilme.cs" />
+    <Compile Include="ItemDAL.cs" />
+    <Compile Include="ItemGenero.cs" />
+    <Compile Include="ItemSituacao.cs" />
     <Compile Include="PessoaDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

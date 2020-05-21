@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frmGeneroFilme : Form
+    public partial class frmCadastroLocacao : Form
     {
-        public frmGeneroFilme()
+        public frmCadastroLocacao()
         {
             InitializeComponent();
+        }
+
+        private void frmCadastroLocacao_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
