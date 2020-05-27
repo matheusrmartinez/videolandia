@@ -27,6 +27,8 @@ namespace GUI
             var clientes = pessoaDAL.ListarTodosClientes();
             dgvClientes.DataSource = clientes;
             OcultarCamposDaGrid(dgvClientes);
+            cmbSituacaoPagamentos.Text = "OK";
+            cmbSituacaoPagamentos.Enabled = false;
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
@@ -49,7 +51,7 @@ namespace GUI
                 pessoa.Telefone = txtTelefone.Text;
                 pessoa.Celular = txtCelular.Text;
                 pessoa.Email = txtEmail.Text;
-                pessoa.SituacaoPagamentos = cmbSituacaoPagamentos.Text;
+                pessoa.SituacaoPagamentos = "OK";
 
             }
             catch (Exception)
@@ -64,6 +66,7 @@ namespace GUI
                 dgvClientes.DataSource = pessoaDAL.ListarTodosClientes();
                 OcultarCamposDaGrid(dgvClientes);
                 LimparDadosDaTela(string.Empty);
+                ControlarComportamentoCampoSituacaoPagamento(true);
                 MessageBox.Show("Registro adicionado com sucesso!");
             }
             catch (Exception ex)
@@ -86,6 +89,7 @@ namespace GUI
                 TrocarEnable(true);
                 ControlarComponentesDaTela(true);
                 MessageBox.Show("Registro atualizado com sucesso!");
+                ControlarComportamentoCampoSituacaoPagamento(true);
             }
             catch (Exception ex)
             {
@@ -103,6 +107,7 @@ namespace GUI
                 OcultarCamposDaGrid(dgvClientes);
                 TrocarEnable(false);
                 LimparDadosDaTela(string.Empty);
+                ControlarComportamentoCampoSituacaoPagamento(true);
                 MessageBox.Show("Registro removido com sucesso!");
 
             }
@@ -117,6 +122,7 @@ namespace GUI
             LimparDadosDaTela(string.Empty);
             TrocarEnable(true);
             ControlarComponentesDaTela(true);
+            ControlarComportamentoCampoSituacaoPagamento(true);
         }
 
         private void LimparDadosDaTela(string limpar)
@@ -135,7 +141,6 @@ namespace GUI
             txtTelefone.Text = limpar;
             txtCelular.Text = limpar;
             txtEmail.Text = limpar;
-            cmbSituacaoPagamentos.Text = limpar;
         }
         private void TrocarEnable(bool habilitarEdicao)
         {
@@ -159,6 +164,7 @@ namespace GUI
                     return;
                 }
                 PreencherATela(pessoa);
+                cmbSituacaoPagamentos.Text = pessoaDAL.RecuperarSituacaoCliente(codigoCliente);
                 ControlarComponentesDaTela(false);
                 TrocarEnable(false);
             }
@@ -224,5 +230,14 @@ namespace GUI
         {
             txtCodigoCliente.Enabled = enabled;
         }
+
+        private void ControlarComportamentoCampoSituacaoPagamento(bool enabled)
+        {
+            cmbSituacaoPagamentos.Enabled = enabled;
+            cmbSituacaoPagamentos.Text = "OK";
+            cmbSituacaoPagamentos.Enabled = !enabled;
+        }
+
+
     }
 }

@@ -4,7 +4,7 @@ GO
 USE VideoLandiaDB;
 GO
 
-CREATE TABLE GenerosFilmes
+CREATE TABLE Generos
 (
 CodigoGenero int PRIMARY KEY IDENTITY,
 Nome varchar(50)
@@ -52,8 +52,8 @@ SituacaoPagamentos varchar(10)
 
 CREATE TABLE Itens
 (
-CodigoItem INT PRIMARY KEY IDENTITY,
-CodigoDeBarras varchar(50),
+CodigoItem INT IDENTITY,
+CodigoDeBarras varchar(50) PRIMARY KEY,
 Titulo varchar(40),
 CodigoGenero int,
 Ano int,
@@ -63,7 +63,7 @@ DataAdquirida DATE,
 Custo decimal (19,6),
 CodigoSituacao int,
 CodigoArtista int,
-FOREIGN KEY (CodigoGenero) REFERENCES GenerosFilmes (CodigoGenero),
+FOREIGN KEY (CodigoGenero) REFERENCES Generos (CodigoGenero),
 FOREIGN KEY (CodigoSituacao) REFERENCES Situacoes (CodigoSituacao),
 FOREIGN KEY (CodigoArtista) REFERENCES Artistas (CodigoArtista)
 )
@@ -71,7 +71,6 @@ FOREIGN KEY (CodigoArtista) REFERENCES Artistas (CodigoArtista)
 CREATE TABLE Locacoes
 (
 CodigoLocacao INT PRIMARY KEY IDENTITY,
-CodigoItem INT,
 CodigoFuncionario INT,
 CodigoCliente INT,
 DataAtual DATE,
@@ -80,41 +79,66 @@ Valor decimal (19,6),
 ValorTotal decimal (19,6),
 ValorPago decimal(19,6),
 SituacaoPagamento varchar(10)
-FOREIGN KEY (CodigoItem) REFERENCES Itens (CodigoItem),
 FOREIGN KEY  (CodigoFuncionario) REFERENCES Pessoas (CodigoPessoa),
 FOREIGN KEY (CodigoCliente) REFERENCES Pessoas (CodigoPessoa)
 )
 
 CREATE TABLE Devolucoes
 (
+CodigoDevolucao INT PRIMARY KEY IDENTITY,
 CodigoLocacao INT,
 DataEntrega DATE,
 ValorAPagar DECIMAL(19,6),
 ValorPago DECIMAL (19,6),
-FOREIGN KEY (CodigoLocacao) REFERENCES Locacoes (CodigoLocacao)
+FOREIGN KEY (CodigoLocacao) REFERENCES Locacoes (CodigoLocacao),
 )
 
-CREATE TABLE FilmesGeneros
+CREATE TABLE ItensDevolucao 
 (
-CodigoItem int,
-CodigoGenero int,
-FOREIGN KEY (CodigoItem) REFERENCES Itens (CodigoItem),
-FOREIGN KEY (CodigoGenero) REFERENCES GenerosFilmes (CodigoGenero) 
+CodigoDevolucao int,
+CodigoDeBarras varchar(50),
+Titulo varchar(50),
+Preco decimal (19,6),
+FOREIGN KEY (CodigoDevolucao) REFERENCES Devolucoes (CodigoDevolucao)
 )
 
 CREATE TABLE ArtistasFilme
 (
-CodigoItem int,
+CodigoDeBarras varchar(50),
 CodigoArtista int,
-FOREIGN KEY (CodigoItem) REFERENCES Itens (CodigoItem),
+FOREIGN KEY (CodigoDeBarras) REFERENCES Itens (CodigoDeBarras),
 FOREIGN KEY (CodigoArtista) REFERENCES Artistas (CodigoArtista)
+)
+
+CREATE TABLE GenerosFilmes
+(
+CodigoGenero int,
+NomeGenero varchar(50),
+CodigoItem int,
+CodigoDeBarras varchar(50),
+Titulo varchar(50),
+FOREIGN KEY (CodigoGenero) REFERENCES Generos (CodigoGenero),
+FOREIGN KEY (CodigoDeBarras) REFERENCES Itens (CodigoDeBarras),
 )
 
 CREATE TABLE PersonagensFilme
 (
 CodigoArtista int,
-CodigoItem int,
+CodigoDeBarras varchar(50),
 NomePersonagem varchar (50) PRIMARY KEY,
+NomeArtista varchar(100),
+Titulo varchar(40),
 FOREIGN KEY (CodigoArtista) REFERENCES Artistas (CodigoArtista),
-FOREIGN KEY (CodigoItem) REFERENCES Itens (CodigoItem)
+FOREIGN KEY (CodigoDeBarras) REFERENCES Itens (CodigoDeBarras)
 )
+
+CREATE TABLE ItensLocacao
+(
+CodigoLocacao int,
+CodigoItem int,
+CodigoDeBarras varchar(50),
+Titulo varchar(40),
+Preco decimal(19,6),
+FOREIGN KEY (CodigoLocacao) REFERENCES Locacoes (CodigoLocacao)
+)
+

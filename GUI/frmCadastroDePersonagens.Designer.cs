@@ -38,6 +38,7 @@
             this.btnRemover = new System.Windows.Forms.Button();
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnAdicionar = new System.Windows.Forms.Button();
+            this.btnPesquisar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cmbFilme
@@ -47,6 +48,7 @@
             this.cmbFilme.Name = "cmbFilme";
             this.cmbFilme.Size = new System.Drawing.Size(154, 21);
             this.cmbFilme.TabIndex = 0;
+            this.cmbFilme.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cmbFilme_MouseClick);
             // 
             // label1
             // 
@@ -73,6 +75,9 @@
             this.cmbArtista.Name = "cmbArtista";
             this.cmbArtista.Size = new System.Drawing.Size(154, 21);
             this.cmbArtista.TabIndex = 0;
+            this.cmbArtista.SelectedValueChanged += new System.EventHandler(this.cmbArtista_SelectedValueChanged);
+            this.cmbArtista.TextChanged += new System.EventHandler(this.cmbArtista_TextChanged);
+            this.cmbArtista.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cmbArtista_MouseClick);
             // 
             // label2
             // 
@@ -89,6 +94,7 @@
             this.txtNomePersonagem.Name = "txtNomePersonagem";
             this.txtNomePersonagem.Size = new System.Drawing.Size(154, 20);
             this.txtNomePersonagem.TabIndex = 4;
+            this.txtNomePersonagem.TextChanged += new System.EventHandler(this.txtNomePersonagem_TextChanged);
             // 
             // btnCancelar
             // 
@@ -130,11 +136,22 @@
             this.btnAdicionar.UseVisualStyleBackColor = true;
             this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Location = new System.Drawing.Point(300, 64);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(65, 20);
+            this.btnPesquisar.TabIndex = 13;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
             // frmCadastroDePersonagens
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(313, 155);
+            this.ClientSize = new System.Drawing.Size(377, 145);
+            this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnRemover);
             this.Controls.Add(this.btnAtualizar);
@@ -146,7 +163,8 @@
             this.Controls.Add(this.cmbArtista);
             this.Controls.Add(this.cmbFilme);
             this.Name = "frmCadastroDePersonagens";
-            this.Text = "Cadastro De Personagens";
+            this.Text = "Cadastro De Personagens do Filme";
+            this.Load += new System.EventHandler(this.frmCadastroDePersonagens_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,5 +182,6 @@
         private System.Windows.Forms.Button btnRemover;
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnAdicionar;
+        private System.Windows.Forms.Button btnPesquisar;
     }
 }

@@ -171,7 +171,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(309, 333);
+            this.ClientSize = new System.Drawing.Size(312, 337);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.btnCancelar);
@@ -183,7 +183,7 @@
             this.Controls.Add(this.txtNomeGenero);
             this.Controls.Add(this.txtCodigoGenero);
             this.Name = "frmCadastroGenero";
-            this.Text = "Cadastro de Gênero de Filme";
+            this.Text = "Cadastro de Gênero Cinematográfico";
             this.Load += new System.EventHandler(this.frmCadastroGenero_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGenerosFilmes)).EndInit();

@@ -227,6 +227,13 @@ namespace GUI
             txtCodigoFuncionario.Enabled = enabled;
         }
 
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+            if(!string.IsNullOrEmpty(txtNome.Text))
+                txtCodigoFuncionario.Enabled = false;
 
+            else
+                txtCodigoFuncionario.Enabled = true;
+        }
     }
 }

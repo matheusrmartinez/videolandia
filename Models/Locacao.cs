@@ -11,9 +11,11 @@ namespace Models
         public Cliente Cliente { get; set; }
         public DateTime DataAtual { get; set; }
         public decimal Valor { get; set; }
-        public DateTime DataPrevista { get { return DateTime.Now.AddDays(5);} }
-        public double ValorTotal { get; set; }
-        public double ValorPago { get; set; }
+        public DateTime DataPrevista { get; set; }
+        public decimal ValorTotal { get; set; }
+        public decimal ValorPago { get; set; }
         public string SituacaoPagamento { get; set; }
+        public List<ItemLocacao> ItensLocacao { get; set; }
+
     }
 }

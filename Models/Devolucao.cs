@@ -6,7 +6,8 @@ namespace Models
     {
         public Locacao Locacao { get; set; }
         public DateTime DataEntrega { get; set; }
-        public double ValorAPagar { get; set; }
-        public double ValorPago { get; set; }
+        public decimal ValorAPagar { get; set; }
+        public decimal ValorPago { get; set; }
+        public decimal ValorTotal { get; set; }
     }
 }

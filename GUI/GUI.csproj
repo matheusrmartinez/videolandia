@@ -82,6 +82,12 @@
     <Compile Include="frmCadastroFuncionario.Designer.cs">
       <DependentUpon>frmCadastroFuncionario.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCadastroGenerosFilme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastroGenerosFilme.Designer.cs">
+      <DependentUpon>frmCadastroGenerosFilme.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCadastroItem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,24 @@
     </Compile>
     <Compile Include="frmCadastroLocacao.Designer.cs">
       <DependentUpon>frmCadastroLocacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDevolucoesPendentes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDevolucoesPendentes.Designer.cs">
+      <DependentUpon>frmDevolucoesPendentes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHistoricoLocacaoClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHistoricoLocacaoClientes.Designer.cs">
+      <DependentUpon>frmHistoricoLocacaoClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHistoricoLocacoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHistoricoLocacoes.Designer.cs">
+      <DependentUpon>frmHistoricoLocacoes.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
@@ -114,6 +138,9 @@
     <EmbeddedResource Include="frmCadastroGenero.resx">
       <DependentUpon>frmCadastroGenero.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCadastroGenerosFilme.resx">
+      <DependentUpon>frmCadastroGenerosFilme.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCadastroLocacao.resx">
       <DependentUpon>frmCadastroLocacao.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,6 +152,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCadastroItem.resx">
       <DependentUpon>frmCadastroItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDevolucoesPendentes.resx">
+      <DependentUpon>frmDevolucoesPendentes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHistoricoLocacaoClientes.resx">
+      <DependentUpon>frmHistoricoLocacaoClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHistoricoLocacoes.resx">
+      <DependentUpon>frmHistoricoLocacoes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>

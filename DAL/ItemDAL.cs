@@ -12,162 +12,23 @@ namespace DAL
     public class ItemDAL
     {
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["VideoLandiaDB"].ConnectionString;
-        //public void AdicionarItem(Item Item)
-        //{
-        //    var queryAdicionarItem = @"INSERT INTO Itens (CodigoItem, CodigoDeBarras, Titulo, CodigoGenero, Ano, Tipo, Preco, DataAdquirida, Custo, CodigoSituacao, CodigoArtista) 
-        //                                 VALUES
-        //                                (
-        //                                    @funcionario,
-        //                                    @nome,
-        //                                    @dataNascimento, 
-        //                                    @sexo,
-        //                                    @estadoCivil,
-        //                                    @rg,
-        //                                    @cpf,
-        //                                    @endereco,
-        //                                    @cidade,
-        //                                    @cep,
-        //                                    @estado,
-        //                                    @telefone,
-        //                                    @celular,
-        //                                    @email,
-        //                                    @situacaoPagamentos
-        //                                )
-        //                                ";
-
-        //    using (SqlConnection sqlConnection = new SqlConnection(connectionString))
-        //    {
-        //        try
-        //        {
-        //            sqlConnection.Open();
-        //        }
-        //        catch (Exception)
-        //        {
-
-        //            throw new Exception("Falha ao conectar no banco de dados");
-        //        }
-        //        try
-        //        {
-        //            SqlCommand sqlCommand = new SqlCommand(queryAdicionarItem, sqlConnection);
-        //            sqlCommand.Parameters.AddWithValue("@funcionario", Item.Funcionario);
-        //            sqlCommand.Parameters.AddWithValue("@nome", Item.Nome);
-        //            sqlCommand.Parameters.AddWithValue("@dataNascimento", Item.DataNascimento);
-        //            sqlCommand.Parameters.AddWithValue("@sexo", Item.Sexo);
-        //            sqlCommand.Parameters.AddWithValue("@estadoCivil", Item.EstadoCivil);
-        //            sqlCommand.Parameters.AddWithValue("@rg", Item.RG);
-        //            sqlCommand.Parameters.AddWithValue("@cpf", Item.CPF);
-        //            sqlCommand.Parameters.AddWithValue("@endereco", Item.Endereco);
-        //            sqlCommand.Parameters.AddWithValue("@cidade", Item.Cidade);
-        //            sqlCommand.Parameters.AddWithValue("@cep", Item.CEP);
-        //            sqlCommand.Parameters.AddWithValue("@estado", Item.Estado);
-        //            sqlCommand.Parameters.AddWithValue("@telefone", Item.Telefone);
-        //            sqlCommand.Parameters.AddWithValue("@celular", Item.Celular);
-        //            sqlCommand.Parameters.AddWithValue("@email", Item.Email);
-        //            sqlCommand.Parameters.AddWithValue("@situacaoPagamentos", Item.SituacaoPagamentos);
-        //            sqlCommand.ExecuteNonQuery();
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            throw new Exception($"Falha ao executar a query. Retorno: {e.Message}");
-        //        }
-
-        //    }
-        //}
-        //public void AtualizarItem(Item Item)
-        //{
-        //    var queryAtualizarItem = @" 
-        //                                   UPDATE Items 
-        //                                   SET 
-        //                                       Nome = @nome,  
-        //                                       DataNascimento = @dataNascimento, 
-        //                                       Sexo = @sexo,
-        //                                       EstadoCivil = @estadoCivil,
-        //                                       RG = @rg,
-        //                                       CPF = @cpf,
-        //                                       Endereco = @endereco,
-        //                                       Cidade = @cidade,
-        //                                       CEP = @cep,
-        //                                       Estado = @estado,
-        //                                       Telefone = @telefone,
-        //                                       Celular = @celular,
-        //                                       Email = @email,
-        //                                       SituacaoPagamentos = @situacaoPagamentos
-        //                                   WHERE CodigoItem = @codigoItem
-        //                               ";
-
-        //    using (SqlConnection sqlConnection = new SqlConnection(connectionString))
-        //    {
-        //        try
-        //        {
-        //            sqlConnection.Open();
-        //        }
-        //        catch (Exception)
-        //        {
-        //            throw new Exception("Falha ao conectar no banco de dados.");
-        //        }
-
-        //        try
-        //        {
-        //            SqlCommand sqlCommand = new SqlCommand(queryAtualizarItem, sqlConnection);
-        //            sqlCommand.Parameters.AddWithValue("@nome", Item.Nome);
-        //            sqlCommand.Parameters.AddWithValue("@dataNascimento", Item.DataNascimento);
-        //            sqlCommand.Parameters.AddWithValue("@sexo", Item.Sexo);
-        //            sqlCommand.Parameters.AddWithValue("@estadoCivil", Item.EstadoCivil);
-        //            sqlCommand.Parameters.AddWithValue("@rg", Item.RG);
-        //            sqlCommand.Parameters.AddWithValue("@cpf", Item.CPF);
-        //            sqlCommand.Parameters.AddWithValue("@endereco", Item.Endereco);
-        //            sqlCommand.Parameters.AddWithValue("@cidade", Item.Cidade);
-        //            sqlCommand.Parameters.AddWithValue("@cep", Item.CEP);
-        //            sqlCommand.Parameters.AddWithValue("@estado", Item.Estado);
-        //            sqlCommand.Parameters.AddWithValue("@telefone", Item.Telefone);
-        //            sqlCommand.Parameters.AddWithValue("@celular", Item.Celular);
-        //            sqlCommand.Parameters.AddWithValue("@email", Item.Email);
-        //            sqlCommand.Parameters.AddWithValue("@situacaoPagamentos", Item.SituacaoPagamentos);
-        //            sqlCommand.Parameters.AddWithValue("@codigoItem", Item.CodigoItem);
-        //            sqlCommand.ExecuteNonQuery();
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            throw new Exception($"Falha ao executar a query. Retorno: {e.Message}");
-        //        }
-        //    }
-        //}
-
-        //public void RemoverItem(int codigoItem)
-        //{
-        //    var queryRemoverItem = "DELETE FROM Items WHERE CodigoItem = @codigoItem";
-
-        //    using (SqlConnection sqlConnection = new SqlConnection(connectionString))
-        //    {
-        //        try
-        //        {
-        //            sqlConnection.Open();
-        //        }
-        //        catch (Exception)
-        //        {
-        //            throw new Exception("Falha ao conectar no banco de dados.");
-        //        }
-
-        //        try
-        //        {
-        //            SqlCommand sqlCommand = new SqlCommand(queryRemoverItem, sqlConnection);
-        //            sqlCommand.Parameters.AddWithValue("@codigoItem", codigoItem);
-        //            sqlCommand.ExecuteNonQuery();
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            throw new Exception($"Falha ao executar a query. Retorno: {e.Message}");
-        //        }
-        //    }
-        //}
-
-        public List<string> RecuperarNomesGeneros()
+        public void AdicionarItem(Item Item)
         {
-            var nomeGenero = string.Empty;
-            List<string> generosFilme = new List<string>();
-            var queryRecuperarGeneros = @"SELECT 
-                                          Nome
-                                          FROM GenerosFilmes";
+            var queryAdicionarItem = @"INSERT INTO Itens (CodigoDeBarras, Titulo, CodigoGenero, Ano, Tipo, Preco, DataAdquirida, Custo, CodigoSituacao, CodigoArtista) 
+                                         VALUES
+                                        (
+                                            @codigoDeBarras, 
+                                            @titulo,
+                                            @codigoGenero,
+                                            @ano,
+                                            @tipo,
+                                            @preco,
+                                            @dataAdquirida,
+                                            @custo,
+                                            @codigoSituacao,
+                                            @codigoArtista
+                                        )
+                                        ";
 
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
@@ -177,20 +38,237 @@ namespace DAL
                 }
                 catch (Exception)
                 {
-                    throw new Exception("Falha ao conectar no banco de dados!");
+
+                    throw new Exception("Falha ao conectar no banco de dados");
+                }
+                try
+                {
+                    SqlCommand sqlCommand = new SqlCommand(queryAdicionarItem, sqlConnection);
+                    sqlCommand.Parameters.AddWithValue("@codigoDeBarras", Item.CodigoDeBarras);
+                    sqlCommand.Parameters.AddWithValue("@titulo", Item.Titulo);
+                    sqlCommand.Parameters.AddWithValue("@codigoGenero", 1);
+                    sqlCommand.Parameters.AddWithValue("@ano", Item.Ano);
+                    sqlCommand.Parameters.AddWithValue("@tipo", Item.Tipo);
+                    sqlCommand.Parameters.AddWithValue("@preco", Item.Preco);
+                    sqlCommand.Parameters.AddWithValue("@dataAdquirida", Item.DataAdquirida);
+                    sqlCommand.Parameters.AddWithValue("@custo", Item.Custo);
+                    sqlCommand.Parameters.AddWithValue("@codigoSituacao", 1);
+                    sqlCommand.Parameters.AddWithValue("@codigoArtista", 1);
+                    sqlCommand.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Falha ao executar a query. Retorno: {e.Message}");
+                }
+
+            }
+        }
+        public void AtualizarItem(Item Item)
+        {
+            var queryAtualizarItem = @" 
+                                               UPDATE Itens 
+                                               SET 
+                                                     CodigoDeBarras = @codigoDeBarras, 
+                                                     Titulo = @titulo,
+                                                     CodigoGenero = @codigoGenero,
+                                                     Ano = @ano,
+                                                     Tipo = @tipo,
+                                                     Preco = @preco,
+                                                     DataAdquirida = @dataAdquirida,
+                                                     Custo = @custo,
+                                                     CodigoSituacao = @codigoSituacao,
+                                                     CodigoArtista = @codigoArtista
+                                                WHERE CodigoDeBarras = @codigoDeBarras
+                                           ";
+
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    sqlConnection.Open();
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Falha ao conectar no banco de dados.");
                 }
 
                 try
                 {
-                    SqlCommand sqlCommand = new SqlCommand(queryRecuperarGeneros, sqlConnection);
+                    SqlCommand sqlCommand = new SqlCommand(queryAtualizarItem, sqlConnection);
+                    sqlCommand.Parameters.AddWithValue("@codigoDeBarras", Item.CodigoDeBarras);
+                    sqlCommand.Parameters.AddWithValue("@titulo", Item.Titulo);
+                    sqlCommand.Parameters.AddWithValue("@codigoGenero", 1);
+                    sqlCommand.Parameters.AddWithValue("@ano", Item.Ano);
+                    sqlCommand.Parameters.AddWithValue("@tipo", Item.Tipo);
+                    sqlCommand.Parameters.AddWithValue("@preco", Item.Preco);
+                    sqlCommand.Parameters.AddWithValue("@dataAdquirida", Item.DataAdquirida);
+                    sqlCommand.Parameters.AddWithValue("@custo", Item.Custo);
+                    sqlCommand.Parameters.AddWithValue("@codigoSituacao", 1);
+                    sqlCommand.Parameters.AddWithValue("@codigoArtista", 1);
+                    sqlCommand.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Falha ao executar a query. Retorno: {e.Message}");
+                }
+            }
+        }
+        public void RemoverItem(int codigoDeBarras)
+        {
+            var queryRemoverItem = "DELETE FROM Items WHERE CodigoDeBarras = @codigoDeBarras";
+
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    sqlConnection.Open();
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Falha ao conectar no banco de dados.");
+                }
+
+                try
+                {
+                    SqlCommand sqlCommand = new SqlCommand(queryRemoverItem, sqlConnection);
+                    sqlCommand.Parameters.AddWithValue("@codigoDeBarras", codigoDeBarras);
+                    sqlCommand.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Falha ao executar a query. Retorno: {e.Message}");
+                }
+            }
+        }
+        public List<string> RecuperarGenerosDoFilme(string codigoDeBarras, string titulo)
+        {
+            List<string> generosFilme = new List<string>();
+
+            var queryRecuperarGenerosDoFilme = @"SELECT T1.Nome 
+                                                 FROM GenerosFilmes T0
+                                                    INNER JOIN Generos T1 ON T0.CodigoGenero = T1.CodigoGenero
+                                                 WHERE T0.CodigoDeBarras = @codigoDeBarras
+                                                    OR T0.Titulo LIKE @titulo";
+
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    sqlConnection.Open();
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Falha ao conectar no banco de dados.");
+                }
+
+                try
+                {
+                    SqlCommand sqlCommand = new SqlCommand(queryRecuperarGenerosDoFilme, sqlConnection);
+                    sqlCommand.Parameters.AddWithValue("@codigoDeBarras", codigoDeBarras);
+                    sqlCommand.Parameters.AddWithValue("@titulo", $"%'{titulo}'%");
                     SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
 
                     if (sqlDataReader.HasRows)
                     {
                         while (sqlDataReader.Read())
                         {
-                            nomeGenero = sqlDataReader["Nome"].ToString();
-                            generosFilme.Add(nomeGenero);
+                            var genero = sqlDataReader["Nome"].ToString();
+                            generosFilme.Add(genero);
+                        }
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Falha ao executar a query. Retorno: {e.Message}");
+                }
+
+                return generosFilme;
+            }
+        }
+        public Item RecuperarFilmePeloCodigoDeBarrasOuPeloTitulo(string codigoDeBarras, string titulo)
+        {
+            Item item = null;
+            var queryRecuperarFilme = @"SELECT * 
+                                        FROM Itens
+                                        WHERE CodigoDeBarras = @codigoDeBarras
+                                         OR Titulo = @titulo";
+
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    sqlConnection.Open();
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Falha ao conectar no banco de dados.");
+                }
+
+                try
+                {
+                    SqlCommand sqlCommand = new SqlCommand(queryRecuperarFilme, sqlConnection);
+                    sqlCommand.Parameters.AddWithValue("@codigoDeBarras", codigoDeBarras);
+                    sqlCommand.Parameters.AddWithValue("@titulo", titulo);
+                    SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+
+                    if (sqlDataReader.HasRows && sqlDataReader.Read())
+                    {
+                        item = new Item();
+                        item.CodigoItem = Convert.ToInt32(sqlDataReader["CodigoItem"].ToString());
+                        item.CodigoDeBarras = sqlDataReader["CodigoDeBarras"].ToString();
+                        item.Titulo = sqlDataReader["Titulo"].ToString();
+                        item.Ano = Convert.ToInt32(sqlDataReader["Ano"].ToString());
+                        item.Tipo = sqlDataReader["Tipo"].ToString();
+                        item.Preco = Convert.ToDecimal(sqlDataReader["Preco"].ToString());
+                        item.DataAdquirida = Convert.ToDateTime(sqlDataReader["DataAdquirida"].ToString());
+                        item.Custo = Convert.ToDecimal(sqlDataReader["Custo"].ToString());
+                        item.CodigoSituacaoFilme = Convert.ToInt32(sqlDataReader["CodigoSituacao"].ToString());
+                    }
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Falha ao executar a query. Retorno: {e.Message}");
+                }
+                return item;
+            }
+        }
+        public List<Item> ListarTodosOsFilmesCadastrados()
+        {
+            List<Item> itens = new List<Item>();
+            Item item = null;
+
+            var queryRecuperarFilmes = @"SELECT 
+                                          CodigoDeBarras,
+                                          Titulo,
+                                          Ano
+                                         FROM Itens";
+
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    sqlConnection.Open();
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Falha ao conectar no banco de dados.");
+                }
+
+                try
+                {
+                    SqlCommand sqlCommand = new SqlCommand(queryRecuperarFilmes, sqlConnection);
+                    SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+
+                    if (sqlDataReader.HasRows)
+                    {
+                        while (sqlDataReader.Read())
+                        {
+                            item = new Item();
+                            item.CodigoDeBarras = sqlDataReader["CodigoDeBarras"].ToString();
+                            item.Titulo = sqlDataReader["Titulo"].ToString();
+                            item.Ano = Convert.ToInt32(sqlDataReader["Ano"].ToString());
+                            itens.Add(item);
                         }
                     }
                 }
@@ -198,204 +276,270 @@ namespace DAL
                 {
                     throw new Exception($"Falha ao executar a query. Retorno: {e.Message}");
                 }
-                return generosFilme;
+                return itens;
             }
         }
-    //}
+        public List<PersonagemFilme> ListarPersonagensDoFilmeDadoUmTituloOuCodigoDeBarras(string codigoDeBarras, string titulo)
+        {
+            PersonagemFilme personagemFilme = null;
+            List<PersonagemFilme> personagensFilme = new List<PersonagemFilme>();
 
-    //public Item PesquisarFuncionario(int codigoItem)
-    //{
-    //    Item Item = null;
-    //    var queryPesquisarFuncionario = $@"SELECT * 
-    //                                       FROM Items 
-    //                                       WHERE Funcionario = 'Y'
-    //                                       AND CodigoItem = @codigoItem
-    //                                      ";
+            var queryRecuperarPersonagensFilme = @"SELECT 
+                                                   T1.Nome,
+                                                   T0.NomePersonagem
+                                                   FROM PersonagensFilme T0
+                                                       INNER JOIN Artistas T1 ON T0.CodigoArtista = T1.CodigoArtista
+                                                       INNER JOIN Itens T2 ON T2.CodigoDeBarras = T0.CodigoDeBarras
+                                                   WHERE T2.CodigoDeBarras = @codigoDeBarras OR
+                                                   T2.Titulo = @titulo
+                                                  ";
 
-    //    using (SqlConnection sqlConnection = new SqlConnection(connectionString))
-    //    {
-    //        try
-    //        {
-    //            sqlConnection.Open();
-    //        }
-    //        catch (System.Exception)
-    //        {
-    //            throw new Exception("Falha ao conectar no banco de dados!");
-    //        }
-    //        try
-    //        {
-    //            SqlCommand sqlCommand = new SqlCommand(queryPesquisarFuncionario, sqlConnection);
-    //            SqlDataReader sqlDataReader;
-    //            sqlCommand.Parameters.AddWithValue("@codigoItem", codigoItem);
-    //            sqlDataReader = sqlCommand.ExecuteReader();
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    sqlConnection.Open();
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Falha ao conectar no banco de dados.");
+                }
 
-    //            if (sqlDataReader.HasRows && sqlDataReader.Read())
-    //            {
-    //                Item = new Item();
-    //                Item.CodigoItem = codigoItem;
-    //                Item.Nome = sqlDataReader["Nome"].ToString();
-    //                Item.DataNascimento = DateTime.Parse(sqlDataReader["DataNascimento"].ToString());
-    //                Item.Sexo = Convert.ToChar(sqlDataReader["Sexo"].ToString());
-    //                Item.EstadoCivil = sqlDataReader["EstadoCivil"].ToString();
-    //                Item.RG = sqlDataReader["RG"].ToString();
-    //                Item.CPF = sqlDataReader["CPF"].ToString();
-    //                Item.Endereco = sqlDataReader["Endereco"].ToString();
-    //                Item.Cidade = sqlDataReader["Cidade"].ToString();
-    //                Item.CEP = sqlDataReader["CEP"].ToString();
-    //                Item.Estado = sqlDataReader["Estado"].ToString();
-    //                Item.Telefone = sqlDataReader["Telefone"].ToString();
-    //                Item.Celular = sqlDataReader["Celular"].ToString();
-    //                Item.Email = sqlDataReader["Email"].ToString();
-    //                Item.SituacaoPagamentos = sqlDataReader["SituacaoPagamentos"].ToString();
-    //            }
-    //        }
-    //        catch (Exception e)
-    //        {
-    //            throw new Exception($"Falha ao executar a query. Retorno: {e.Message}");
-    //        }
-    //    }
-    //    return Item;
-    //}
+                try
+                {
+                    SqlCommand sqlCommand = new SqlCommand(queryRecuperarPersonagensFilme, sqlConnection);
+                    sqlCommand.Parameters.AddWithValue("@codigoDeBarras", codigoDeBarras);
+                    sqlCommand.Parameters.AddWithValue("@titulo", titulo);
+                    SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
 
-    //public Item PesquisarCliente(int codigoItem)
-    //{
-    //    Item Item = null;
-    //    var queryPesquisarCliente = $@"SELECT * 
-    //                                       FROM Items 
-    //                                       WHERE Funcionario = 'N'
-    //                                       AND CodigoItem = @codigoItem
-    //                                      ";
+                    if (sqlDataReader.HasRows)
+                    {
+                        while (sqlDataReader.Read())
+                        {
+                            personagemFilme = new PersonagemFilme();
+                            personagemFilme.NomeAtor = sqlDataReader["Nome"].ToString();
+                            personagemFilme.NomePersonagem = sqlDataReader["NomePersonagem"].ToString();
+                            personagensFilme.Add(personagemFilme);
+                        }
+                    }
 
-    //    using (SqlConnection sqlConnection = new SqlConnection(connectionString))
-    //    {
-    //        try
-    //        {
-    //            sqlConnection.Open();
-    //        }
-    //        catch (System.Exception)
-    //        {
-    //            throw new Exception("Falha ao conectar no banco de dados!");
-    //        }
-    //        try
-    //        {
-    //            SqlCommand sqlCommand = new SqlCommand(queryPesquisarCliente, sqlConnection);
-    //            SqlDataReader sqlDataReader;
-    //            sqlCommand.Parameters.AddWithValue("@codigoItem", codigoItem);
-    //            sqlDataReader = sqlCommand.ExecuteReader();
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Falha ao executar a query. Retorno: {e.Message}");
+                }
 
-    //            if (sqlDataReader.HasRows && sqlDataReader.Read())
-    //            {
-    //                Item = new Item();
-    //                Item.CodigoItem = codigoItem;
-    //                Item.Nome = sqlDataReader["Nome"].ToString();
-    //                Item.DataNascimento = DateTime.Parse(sqlDataReader["DataNascimento"].ToString());
-    //                Item.Sexo = Convert.ToChar(sqlDataReader["Sexo"].ToString());
-    //                Item.EstadoCivil = sqlDataReader["EstadoCivil"].ToString();
-    //                Item.RG = sqlDataReader["RG"].ToString();
-    //                Item.CPF = sqlDataReader["CPF"].ToString();
-    //                Item.Endereco = sqlDataReader["Endereco"].ToString();
-    //                Item.Cidade = sqlDataReader["Cidade"].ToString();
-    //                Item.CEP = sqlDataReader["CEP"].ToString();
-    //                Item.Estado = sqlDataReader["Estado"].ToString();
-    //                Item.Telefone = sqlDataReader["Telefone"].ToString();
-    //                Item.Celular = sqlDataReader["Celular"].ToString();
-    //                Item.Email = sqlDataReader["Email"].ToString();
-    //                Item.SituacaoPagamentos = sqlDataReader["SituacaoPagamentos"].ToString();
-    //            }
-    //        }
-    //        catch (Exception e)
-    //        {
-    //            throw new Exception($"Falha ao executar a query. Retorno: {e.Message}");
-    //        }
-    //    }
-    //    return Item;
-    //}
+                return personagensFilme;
+            }
+        }
+        public void InserirNaTabelaSituacao(Situacao situacao)
+        {
+            var queryAdicionarSituacao = @"INSERT INTO Situacoes (NomeCliente, DataRetirada, DataPrevista, Telefone, Celular) 
+                                         VALUES
+                                        (
+                                            @nomeCliente, 
+                                            @dataRetirada,
+                                            @dataPrevista,
+                                            @telefone,
+                                            @celular
+                                        )
+                                        ";
 
-    //public List<Item> ListarTodosClientes()
-    //{
-    //    Item cliente = null;
-    //    List<Item> clientes = new List<Item>();
-    //    var queryListarTodosClientes = @"SELECT 
-    //                                         CodigoItem,
-    //                                         Nome,
-    //                                         CPF,
-    //                                         SituacaoPagamentos
-    //                                     FROM Items
-    //                                     WHERE Funcionario = 'N'";
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    sqlConnection.Open();
+                }
+                catch (Exception)
+                {
 
-    //    using (SqlConnection sqlConnection = new SqlConnection(connectionString))
-    //    {
-    //        try
-    //        {
-    //            sqlConnection.Open();
-    //        }
-    //        catch (Exception e)
-    //        {
-    //            throw new Exception($"Falha ao conectar no banco de dados. Retorno: {e.Message}");
-    //        }
+                    throw new Exception("Falha ao conectar no banco de dados");
+                }
+                try
+                {
+                    SqlCommand sqlCommand = new SqlCommand(queryAdicionarSituacao, sqlConnection);
+                    sqlCommand.Parameters.AddWithValue("@nomeCliente", situacao.NomeCliente);
+                    sqlCommand.Parameters.AddWithValue("@dataRetirada", situacao.DataRetirada);
+                    sqlCommand.Parameters.AddWithValue("@dataPrevista", situacao.DataPrevista);
+                    sqlCommand.Parameters.AddWithValue("@telefone", situacao.Telefone);
+                    sqlCommand.Parameters.AddWithValue("@celular", situacao.Celular);
+                    sqlCommand.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Falha ao executar a query. Retorno: {e.Message}");
+                }
+            }
+        }
+        public void InserirSituacaoPadraoNaTabelaSituacao(Situacao situacao)
+        {
+            var queryAdicionarSituacao = @"INSERT INTO Situacoes (NomeCliente, DataRetirada, DataPrevista, Telefone, Celular) 
+                                         VALUES
+                                        (
+                                            @nomeCliente, 
+                                            @dataRetirada,
+                                            @dataPrevista,
+                                            @telefone,
+                                            @celular
+                                        )
+                                        ";
 
-    //        SqlCommand sqlCommand = new SqlCommand(queryListarTodosClientes, sqlConnection);
-    //        SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    sqlConnection.Open();
+                }
+                catch (Exception)
+                {
 
-    //        if (sqlDataReader.HasRows)
-    //        {
-    //            while (sqlDataReader.Read())
-    //            {
-    //                cliente = new Item();
-    //                cliente.CodigoItem = Convert.ToInt32(sqlDataReader["CodigoItem"].ToString());
-    //                cliente.Nome = sqlDataReader["Nome"].ToString();
-    //                cliente.CPF = sqlDataReader["CPF"].ToString();
-    //                cliente.SituacaoPagamentos = sqlDataReader["SituacaoPagamentos"].ToString();
-    //                clientes.Add(cliente);
-    //            }
-    //        }
+                    throw new Exception("Falha ao conectar no banco de dados");
+                }
+                try
+                {
+                    SqlCommand sqlCommand = new SqlCommand(queryAdicionarSituacao, sqlConnection);
+                    sqlCommand.Parameters.AddWithValue("@nomeCliente", null);
+                    sqlCommand.Parameters.AddWithValue("@dataRetirada", null);
+                    sqlCommand.Parameters.AddWithValue("@dataPrevista", null);
+                    sqlCommand.Parameters.AddWithValue("@telefone", null);
+                    sqlCommand.Parameters.AddWithValue("@celular", null);
+                    sqlCommand.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Falha ao executar a query. Retorno: {e.Message}");
+                }
+            }
+        }
+        public bool VerificarSeExisteRegistroPadraoNaTabelaSituacao()
+        {
+            var existeRegistroNaTabela = false;
 
-    //        return clientes;
-    //    }
-    //}
+            var verificarSeExisteRegistroNaTabela = "SELECT COUNT(*) FROM Situacoes";
 
-    //public List<Item> ListarTodosFuncionarios()
-    //{
-    //    Item funcionario = null;
-    //    List<Item> funcionarios = new List<Item>();
-    //    var queryListarTodosFuncionarios = @"SELECT 
-    //                                         CodigoItem,
-    //                                         Nome,
-    //                                         CPF,
-    //                                         SituacaoPagamentos
-    //                                     FROM Items
-    //                                     WHERE Funcionario = 'Y'";
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    sqlConnection.Open();
+                }
+                catch (Exception)
+                {
 
-    //    using (SqlConnection sqlConnection = new SqlConnection(connectionString))
-    //    {
-    //        try
-    //        {
-    //            sqlConnection.Open();
-    //        }
-    //        catch (Exception e)
-    //        {
-    //            throw new Exception($"Falha ao conectar no banco de dados. Retorno: {e.Message}");
-    //        }
+                    throw new Exception("Falha ao conectar no banco de dados");
+                }
+                try
+                {
+                    SqlCommand sqlCommand = new SqlCommand(verificarSeExisteRegistroNaTabela, sqlConnection);
+                    existeRegistroNaTabela = Convert.ToBoolean(sqlCommand.ExecuteScalar());
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Falha ao executar a query. Retorno: {e.Message}");
+                }
+            }
 
-    //        SqlCommand sqlCommand = new SqlCommand(queryListarTodosFuncionarios, sqlConnection);
-    //        SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            return existeRegistroNaTabela;
+        }
+        public int RecuperarCodigoDaUltimaSituacaoInserida()
+        {
+            var queryRecuperarUltimoCodigoSituacaoInserida = "SELECT TOP 1 CodigoSituacao FROM Situacoes ORDER BY CodigoSituacao DESC";
+            int codigoSituacao = 0;
 
-    //        if (sqlDataReader.HasRows)
-    //        {
-    //            while (sqlDataReader.Read())
-    //            {
-    //                funcionario = new Item();
-    //                funcionario.CodigoItem = Convert.ToInt32(sqlDataReader["CodigoItem"].ToString());
-    //                funcionario.Nome = sqlDataReader["Nome"].ToString();
-    //                funcionario.CPF = sqlDataReader["CPF"].ToString();
-    //                funcionario.SituacaoPagamentos = sqlDataReader["SituacaoPagamentos"].ToString();
-    //                funcionarios.Add(funcionario);
-    //            }
-    //        }
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    sqlConnection.Open();
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Falha ao conectar no banco de dados.");
+                }
 
-    //        return funcionarios;
-    //    }
-    //}
+                try
+                {
+                    SqlCommand sqlCommand = new SqlCommand(queryRecuperarUltimoCodigoSituacaoInserida, sqlConnection);
+                    SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
 
+                    if (sqlDataReader.HasRows && sqlDataReader.Read())
+                    {
+                        codigoSituacao = Convert.ToInt32(sqlDataReader["CodigoSituacao"].ToString());
+                    }
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Falha ao executar a query. Retorno: {e.Message}");
+                }
+            }
+            return codigoSituacao;
+        }
+        public void AtualizarSituacaoItem(int codigoSituacao, string codigoDeBarras)
+        {
+            var queryAtualizarSituacaoItem = "UPDATE Itens SET CodigoSituacao = @codigoSituacao WHERE CodigoDeBarras = @codigoDeBarras";
+
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    sqlConnection.Open();
+                }
+                catch (Exception)
+                {
+
+                    throw new Exception("Falha ao conectar no banco de dados");
+                }
+                try
+                {
+                    SqlCommand sqlCommand = new SqlCommand(queryAtualizarSituacaoItem, sqlConnection);
+                    sqlCommand.Parameters.AddWithValue("@codigoSituacao", codigoSituacao);
+                    sqlCommand.Parameters.AddWithValue("@codigoDeBarras", codigoDeBarras);
+                    sqlCommand.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Falha ao executar a query. Retorno: {e.Message}");
+                }
+            }
+        }
+        public int RecuperarSituacaoDoItemPeloTituloOuCodigoDeBarras(string codigoDeBarras, string titulo)
+        {
+            var codigoSituacao = -1;
+            var queryRecuperarSituacaoItem = "SELECT CodigoSituacao FROM Itens WHERE CodigoDeBarras = @codigoDeBarras OR titulo = @titulo ";
+
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    sqlConnection.Open();
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Falha ao conectar no banco de dados.");
+                }
+
+                try
+                {
+                    SqlCommand sqlCommand = new SqlCommand(queryRecuperarSituacaoItem, sqlConnection);
+                    sqlCommand.Parameters.AddWithValue("@codigoDeBarras", codigoDeBarras);
+                    sqlCommand.Parameters.AddWithValue("@titulo", titulo);
+                    SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+
+                    if (sqlDataReader.HasRows && sqlDataReader.Read())
+                    {
+                        codigoSituacao = Convert.ToInt32(sqlDataReader["CodigoSituacao"].ToString());
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Falha ao executar a query. Retorno: {e.Message}");
+                }
+
+                return codigoSituacao;
+            }
+        }
+    }
 }
-}
+

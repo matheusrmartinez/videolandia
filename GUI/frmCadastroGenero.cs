@@ -14,11 +14,11 @@ namespace GUI
 {
     public partial class frmCadastroGenero : Form
     {
-        GeneroFilmeDAL generoFilmeDAL;
+        GeneroDAL generoFilmeDAL;
         public frmCadastroGenero()
         {
             InitializeComponent();
-            generoFilmeDAL = new GeneroFilmeDAL();
+            generoFilmeDAL = new GeneroDAL();
         }
         private void frmCadastroGenero_Load(object sender, EventArgs e)
         {
@@ -112,13 +112,13 @@ namespace GUI
             txtCodigoGenero.Text = string.Empty;
             txtNomeGenero.Text = string.Empty;
         }
-        private GeneroFilme PreencherGeneroFilmeDeAcordoComDadosDaTela(int codigoGenero)
+        private Genero PreencherGeneroFilmeDeAcordoComDadosDaTela(int codigoGenero)
         {
-            GeneroFilme generoFilme = new GeneroFilme();
-            generoFilme.CodigoGenero = codigoGenero;
-            generoFilme.Nome = txtNomeGenero.Text;
+            Genero genero = new Genero();
+            genero.CodigoGenero = codigoGenero;
+            genero.Nome = txtNomeGenero.Text;
 
-            return generoFilme;
+            return genero;
         }
         private void TrocarEnable(bool habilitarEdicao)
         {
@@ -130,12 +130,10 @@ namespace GUI
         {
             txtCodigoGenero.Enabled = enabled;
         }
-        private void PreencherATela(GeneroFilme generoFilme)
+        private void PreencherATela(Genero generoFilme)
         {
             txtCodigoGenero.Text = generoFilme.CodigoGenero.ToString();
             txtNomeGenero.Text = generoFilme.Nome;
         }
-
-
     }
 }

@@ -45,11 +45,53 @@ namespace GUI
             frmCadastroArtista.Show();
         }
 
+        private void gênerosFilmeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PreencherComboBoxNaTela frmCadastroGenerosFilme = new PreencherComboBoxNaTela();
+            frmCadastroGenerosFilme.MdiParent = this;
+            frmCadastroGenerosFilme.Show();
+        }
+
         private void itemToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmCadastroItem frmCadastroItem = new frmCadastroItem();
             frmCadastroItem.MdiParent = this;
             frmCadastroItem.Show();
+        }
+
+        private void locaçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroLocacao frmCadastroLocacao = new frmCadastroLocacao();
+            frmCadastroLocacao.MdiParent = this;
+            frmCadastroLocacao.Show();
+        }
+
+        private void devoluçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroDevolucao frmCadastroDevolucao = new frmCadastroDevolucao();
+            frmCadastroDevolucao.MdiParent = this;
+            frmCadastroDevolucao.Show();
+        }
+
+        private void pendentesDevoluçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDevolucoesPendentes frmDevolucoesPendentes = new frmDevolucoesPendentes();
+            frmDevolucoesPendentes.MdiParent = this;
+            frmDevolucoesPendentes.Show();
+        }
+
+        private void históricoLocaçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHistoricoLocacoes frmHistoricoLocacoes = new frmHistoricoLocacoes();
+            frmHistoricoLocacoes.MdiParent = this;
+            frmHistoricoLocacoes.Show();
+        }
+
+        private void históricoLocaçõesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmHistoricoLocacaoClientes frmHistoricoLocacaoClientes = new frmHistoricoLocacaoClientes();
+            frmHistoricoLocacaoClientes.MdiParent = this;
+            frmHistoricoLocacaoClientes.Show();
         }
     }
 }

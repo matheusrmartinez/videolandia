@@ -38,11 +38,14 @@
             this.artistasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gêneroFilmeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.personagensFilmeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gênerosFilmeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatórioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.funcionárioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pendentesDevoluçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.locaçãoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.dezÚltimasLocaçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.clienteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.históricoLocaçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.históricoLocaçõesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,7 +70,8 @@
             this.devoluçãoToolStripMenuItem,
             this.artistasToolStripMenuItem,
             this.gêneroFilmeToolStripMenuItem,
-            this.personagensFilmeToolStripMenuItem});
+            this.personagensFilmeToolStripMenuItem,
+            this.gênerosFilmeToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
@@ -98,12 +102,14 @@
             this.locaçãoToolStripMenuItem.Name = "locaçãoToolStripMenuItem";
             this.locaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.locaçãoToolStripMenuItem.Text = "Locação";
+            this.locaçãoToolStripMenuItem.Click += new System.EventHandler(this.locaçãoToolStripMenuItem_Click);
             // 
             // devoluçãoToolStripMenuItem
             // 
             this.devoluçãoToolStripMenuItem.Name = "devoluçãoToolStripMenuItem";
             this.devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.devoluçãoToolStripMenuItem.Text = "Devolução";
+            this.devoluçãoToolStripMenuItem.Click += new System.EventHandler(this.devoluçãoToolStripMenuItem_Click);
             // 
             // artistasToolStripMenuItem
             // 
@@ -116,7 +122,7 @@
             // 
             this.gêneroFilmeToolStripMenuItem.Name = "gêneroFilmeToolStripMenuItem";
             this.gêneroFilmeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.gêneroFilmeToolStripMenuItem.Text = "Gênero Filme";
+            this.gêneroFilmeToolStripMenuItem.Text = "Gênero";
             this.gêneroFilmeToolStripMenuItem.Click += new System.EventHandler(this.gêneroFilmeToolStripMenuItem_Click);
             // 
             // personagensFilmeToolStripMenuItem
@@ -126,11 +132,19 @@
             this.personagensFilmeToolStripMenuItem.Text = "Personagens Filme";
             this.personagensFilmeToolStripMenuItem.Click += new System.EventHandler(this.personagensFilmeToolStripMenuItem_Click);
             // 
+            // gênerosFilmeToolStripMenuItem
+            // 
+            this.gênerosFilmeToolStripMenuItem.Name = "gênerosFilmeToolStripMenuItem";
+            this.gênerosFilmeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gênerosFilmeToolStripMenuItem.Text = "Gêneros Filme";
+            this.gênerosFilmeToolStripMenuItem.Click += new System.EventHandler(this.gênerosFilmeToolStripMenuItem_Click);
+            // 
             // relatórioToolStripMenuItem
             // 
             this.relatórioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.funcionárioToolStripMenuItem1,
-            this.locaçãoToolStripMenuItem1});
+            this.itemToolStripMenuItem1,
+            this.clienteToolStripMenuItem1});
             this.relatórioToolStripMenuItem.Name = "relatórioToolStripMenuItem";
             this.relatórioToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.relatórioToolStripMenuItem.Text = "Relatório";
@@ -140,7 +154,7 @@
             this.funcionárioToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pendentesDevoluçãoToolStripMenuItem});
             this.funcionárioToolStripMenuItem1.Name = "funcionárioToolStripMenuItem1";
-            this.funcionárioToolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
+            this.funcionárioToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.funcionárioToolStripMenuItem1.Text = "Funcionário";
             // 
             // pendentesDevoluçãoToolStripMenuItem
@@ -148,20 +162,37 @@
             this.pendentesDevoluçãoToolStripMenuItem.Name = "pendentesDevoluçãoToolStripMenuItem";
             this.pendentesDevoluçãoToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.pendentesDevoluçãoToolStripMenuItem.Text = "Pendentes Devolução";
+            this.pendentesDevoluçãoToolStripMenuItem.Click += new System.EventHandler(this.pendentesDevoluçãoToolStripMenuItem_Click);
             // 
-            // locaçãoToolStripMenuItem1
+            // itemToolStripMenuItem1
             // 
-            this.locaçãoToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dezÚltimasLocaçõesToolStripMenuItem});
-            this.locaçãoToolStripMenuItem1.Name = "locaçãoToolStripMenuItem1";
-            this.locaçãoToolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
-            this.locaçãoToolStripMenuItem1.Text = "Locação";
+            this.itemToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.históricoLocaçõesToolStripMenuItem});
+            this.itemToolStripMenuItem1.Name = "itemToolStripMenuItem1";
+            this.itemToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.itemToolStripMenuItem1.Text = "Item";
             // 
-            // dezÚltimasLocaçõesToolStripMenuItem
+            // clienteToolStripMenuItem1
             // 
-            this.dezÚltimasLocaçõesToolStripMenuItem.Name = "dezÚltimasLocaçõesToolStripMenuItem";
-            this.dezÚltimasLocaçõesToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.dezÚltimasLocaçõesToolStripMenuItem.Text = "Dez últimas locações";
+            this.clienteToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.históricoLocaçõesToolStripMenuItem1});
+            this.clienteToolStripMenuItem1.Name = "clienteToolStripMenuItem1";
+            this.clienteToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.clienteToolStripMenuItem1.Text = "Cliente";
+            // 
+            // históricoLocaçõesToolStripMenuItem
+            // 
+            this.históricoLocaçõesToolStripMenuItem.Name = "históricoLocaçõesToolStripMenuItem";
+            this.históricoLocaçõesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.históricoLocaçõesToolStripMenuItem.Text = "Histórico Locações";
+            this.históricoLocaçõesToolStripMenuItem.Click += new System.EventHandler(this.históricoLocaçõesToolStripMenuItem_Click);
+            // 
+            // históricoLocaçõesToolStripMenuItem1
+            // 
+            this.históricoLocaçõesToolStripMenuItem1.Name = "históricoLocaçõesToolStripMenuItem1";
+            this.históricoLocaçõesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.históricoLocaçõesToolStripMenuItem1.Text = "Histórico Locações";
+            this.históricoLocaçõesToolStripMenuItem1.Click += new System.EventHandler(this.históricoLocaçõesToolStripMenuItem1_Click);
             // 
             // frmPrincipal
             // 
@@ -193,10 +224,13 @@
         private System.Windows.Forms.ToolStripMenuItem relatórioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem funcionárioToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem pendentesDevoluçãoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem locaçãoToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem dezÚltimasLocaçõesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gêneroFilmeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem personagensFilmeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gênerosFilmeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem itemToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem históricoLocaçõesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem históricoLocaçõesToolStripMenuItem1;
     }
 }
 

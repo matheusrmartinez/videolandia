@@ -86,6 +86,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(181, 20);
             this.txtNome.TabIndex = 0;
+            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // txtRG
             // 
@@ -461,7 +462,7 @@
             this.cmbSituacaoPagamentos.Size = new System.Drawing.Size(121, 21);
             this.cmbSituacaoPagamentos.TabIndex = 9;
             // 
-            // frmFuncionario
+            // frmCadastroFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -502,7 +503,7 @@
             this.Controls.Add(this.txtRG);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtCodigoFuncionario);
-            this.Name = "frmFuncionario";
+            this.Name = "frmCadastroFuncionario";
             this.Text = "Cadastro de Funcionário";
             this.Load += new System.EventHandler(this.frmFuncionario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionarios)).EndInit();

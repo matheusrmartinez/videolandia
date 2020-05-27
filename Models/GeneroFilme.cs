@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Models
 {
     public class GeneroFilme
     {
-        public int CodigoGenero { get; set; }
-        public string Nome { get; set; }
+        public List<int> CodigoGenero { get; set; }
+        public int CodigoItem { get; set; }
+        public string Titulo { get; set; }
+        public string CodigoDeBarras { get; set; }
+        public List<string> NomeGenero { get; set; }
     }
 }

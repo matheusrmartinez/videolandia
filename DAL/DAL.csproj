@@ -44,12 +44,16 @@
   <ItemGroup>
     <Compile Include="ArtistaDAL.cs" />
     <Compile Include="AtoresDAL.cs" />
+    <Compile Include="DevolucaoDAL.cs" />
     <Compile Include="DiretorDAL.cs" />
+    <Compile Include="GeneroDAL.cs" />
     <Compile Include="GeneroFilmeDAL.cs" />
-    <Compile Include="ItemAtorFilme.cs" />
     <Compile Include="ItemDAL.cs" />
-    <Compile Include="ItemGenero.cs" />
+    <Compile Include="ItemDevolucaoDAL.cs" />
+    <Compile Include="ItemLocacaoDAL.cs" />
     <Compile Include="ItemSituacao.cs" />
+    <Compile Include="LocacaoDAL.cs" />
+    <Compile Include="PersonagemFilmeDAL.cs" />
     <Compile Include="PessoaDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

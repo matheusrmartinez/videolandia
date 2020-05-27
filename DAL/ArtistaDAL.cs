@@ -163,13 +163,12 @@ namespace DAL
             FilmeArtista filmeArtista = null;
             List<FilmeArtista> filmesArtista = new List<FilmeArtista>();
             var queryPesquisarArtista = $@"SELECT 
-                                               T0.CodigoArtista,
                                                T2.Titulo,
                                                T3.NomePersonagem 
                                            FROM Artistas T0
                                                INNER JOIN ArtistasFilme T1 ON T0.CodigoArtista = T1.CodigoArtista
-                                               INNER JOIN Itens T2 ON T1.CodigoItem = T2.CodigoItem 
-                                               INNER JOIN PersonagensFilme T3 ON T2.CodigoArtista = T3.CodigoArtista AND T2.Codigoitem = T3.CodigoItem
+                                               INNER JOIN Itens T2 ON T1.CodigoDeBarras = T2.CodigoDeBarras 
+                                               INNER JOIN PersonagensFilme T3 ON T2.CodigoArtista = T3.CodigoArtista AND T2.CodigoDeBarras = T3.CodigoDeBarras
                                            WHERE Nome LIKE @nomeArtista
                                          ";
 
@@ -187,7 +186,7 @@ namespace DAL
                 {
                     SqlCommand sqlCommand = new SqlCommand(queryPesquisarArtista, sqlConnection);
                     SqlDataReader sqlDataReader;
-                    sqlCommand.Parameters.AddWithValue("@nomeArtista", $"%{nomeArtista}%");
+                    sqlCommand.Parameters.AddWithValue("@nomeArtista", $"'%{nomeArtista}%'");
                     sqlDataReader = sqlCommand.ExecuteReader();
 
                     if (sqlDataReader.HasRows)
@@ -195,8 +194,7 @@ namespace DAL
                         while (sqlDataReader.Read())
                         {
                             filmeArtista = new FilmeArtista();
-                            filmeArtista.CodigoArtista = Convert.ToInt32(sqlDataReader["CodigoArtista"]);
-                            filmeArtista.NomeFilme = sqlDataReader["NomeFilme"].ToString();
+                            filmeArtista.NomeFilme = sqlDataReader["Titulo"].ToString();
                             filmeArtista.NomePersonagem = sqlDataReader["NomePersonagem"].ToString();
                             filmesArtista.Add(filmeArtista);
                         }

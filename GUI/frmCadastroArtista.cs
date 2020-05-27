@@ -24,6 +24,7 @@ namespace GUI
         private void frmCadastroArtista_Load(object sender, EventArgs e)
         {
             ControlarComponentesDaTela(false);
+            TrocarEnable(true);
         }
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
@@ -134,7 +135,6 @@ namespace GUI
                     ControlarComponentesDaTela(false);
                     return;
                 }
-
                 PreencherInformacoesDoCabecalho(artista, false);
                 PreencherInformacoesDaGridListaDeFilmesDoArtista(filmesArtista);
                 ControlarComponentesDaTela(false);
@@ -159,6 +159,7 @@ namespace GUI
         private void ControlarComponentesDaTela(bool enabled)
         {
             txtCodigoArtista.Enabled = enabled;
+            
         }
         private void PreencherInformacoesDoCabecalho(Artista artista, bool nomeAtorPreenchido)
         {
@@ -176,6 +177,7 @@ namespace GUI
         private void PreencherInformacoesDaGridListaDeFilmesDoArtista(List<FilmeArtista> filmesArtista)
         {
             dgvFilmesArtista.DataSource = filmesArtista;
+            ControlarColunasDaGridView();
         }
         private void txtNomeAtor_TextChanged(object sender, EventArgs e)
         {
@@ -192,6 +194,12 @@ namespace GUI
 
             else
                 txtNomeAtor.Enabled = true;
+        }
+
+        private void ControlarColunasDaGridView()
+        {
+            dgvFilmesArtista.Columns["NomeFilme"].Visible = false;
+            dgvFilmesArtista.Columns["CodigoArtista"].Visible = false;
         }
     }
 }

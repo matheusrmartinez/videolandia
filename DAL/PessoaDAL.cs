@@ -159,9 +159,9 @@ namespace DAL
             }
         }
 
-        public Pessoa PesquisarFuncionario(int codigoPessoa)
+        public Funcionario PesquisarFuncionario(int codigoPessoa)
         {
-            Pessoa pessoa = null;
+            Funcionario funcionario = null;
             var queryPesquisarFuncionario = $@"SELECT * 
                                                FROM Pessoas 
                                                WHERE Funcionario = 'Y'
@@ -187,22 +187,22 @@ namespace DAL
 
                     if (sqlDataReader.HasRows && sqlDataReader.Read())
                     {
-                        pessoa = new Pessoa();
-                        pessoa.CodigoPessoa = codigoPessoa;
-                        pessoa.Nome = sqlDataReader["Nome"].ToString();
-                        pessoa.DataNascimento = DateTime.Parse(sqlDataReader["DataNascimento"].ToString());
-                        pessoa.Sexo = Convert.ToChar(sqlDataReader["Sexo"].ToString());
-                        pessoa.EstadoCivil = sqlDataReader["EstadoCivil"].ToString();
-                        pessoa.RG = sqlDataReader["RG"].ToString();
-                        pessoa.CPF = sqlDataReader["CPF"].ToString();
-                        pessoa.Endereco = sqlDataReader["Endereco"].ToString();
-                        pessoa.Cidade = sqlDataReader["Cidade"].ToString();
-                        pessoa.CEP = sqlDataReader["CEP"].ToString();
-                        pessoa.Estado = sqlDataReader["Estado"].ToString();
-                        pessoa.Telefone = sqlDataReader["Telefone"].ToString();
-                        pessoa.Celular = sqlDataReader["Celular"].ToString();
-                        pessoa.Email = sqlDataReader["Email"].ToString();
-                        pessoa.SituacaoPagamentos = sqlDataReader["SituacaoPagamentos"].ToString();
+                        funcionario = new Funcionario();
+                        funcionario.CodigoPessoa = codigoPessoa;
+                        funcionario.Nome = sqlDataReader["Nome"].ToString();
+                        funcionario.DataNascimento = DateTime.Parse(sqlDataReader["DataNascimento"].ToString());
+                        funcionario.Sexo = Convert.ToChar(sqlDataReader["Sexo"].ToString());
+                        funcionario.EstadoCivil = sqlDataReader["EstadoCivil"].ToString();
+                        funcionario.RG = sqlDataReader["RG"].ToString();
+                        funcionario.CPF = sqlDataReader["CPF"].ToString();
+                        funcionario.Endereco = sqlDataReader["Endereco"].ToString();
+                        funcionario.Cidade = sqlDataReader["Cidade"].ToString();
+                        funcionario.CEP = sqlDataReader["CEP"].ToString();
+                        funcionario.Estado = sqlDataReader["Estado"].ToString();
+                        funcionario.Telefone = sqlDataReader["Telefone"].ToString();
+                        funcionario.Celular = sqlDataReader["Celular"].ToString();
+                        funcionario.Email = sqlDataReader["Email"].ToString();
+                        funcionario.SituacaoPagamentos = sqlDataReader["SituacaoPagamentos"].ToString();
                     }
                 }
                 catch (Exception e)
@@ -210,12 +210,12 @@ namespace DAL
                     throw new Exception($"Falha ao executar a query. Retorno: {e.Message}");
                 }
             }
-            return pessoa;
+            return funcionario;
         }
 
-        public Pessoa PesquisarCliente(int codigoPessoa)
+        public Cliente PesquisarCliente(int codigoPessoa)
         {
-            Pessoa pessoa = null;
+            Cliente cliente = null;
             var queryPesquisarCliente = $@"SELECT * 
                                                FROM Pessoas 
                                                WHERE Funcionario = 'N'
@@ -241,22 +241,22 @@ namespace DAL
 
                     if (sqlDataReader.HasRows && sqlDataReader.Read())
                     {
-                        pessoa = new Pessoa();
-                        pessoa.CodigoPessoa = codigoPessoa;
-                        pessoa.Nome = sqlDataReader["Nome"].ToString();
-                        pessoa.DataNascimento = DateTime.Parse(sqlDataReader["DataNascimento"].ToString());
-                        pessoa.Sexo = Convert.ToChar(sqlDataReader["Sexo"].ToString());
-                        pessoa.EstadoCivil = sqlDataReader["EstadoCivil"].ToString();
-                        pessoa.RG = sqlDataReader["RG"].ToString();
-                        pessoa.CPF = sqlDataReader["CPF"].ToString();
-                        pessoa.Endereco = sqlDataReader["Endereco"].ToString();
-                        pessoa.Cidade = sqlDataReader["Cidade"].ToString();
-                        pessoa.CEP = sqlDataReader["CEP"].ToString();
-                        pessoa.Estado = sqlDataReader["Estado"].ToString();
-                        pessoa.Telefone = sqlDataReader["Telefone"].ToString();
-                        pessoa.Celular = sqlDataReader["Celular"].ToString();
-                        pessoa.Email = sqlDataReader["Email"].ToString();
-                        pessoa.SituacaoPagamentos = sqlDataReader["SituacaoPagamentos"].ToString();
+                        cliente = new Cliente();
+                        cliente.CodigoPessoa = codigoPessoa;
+                        cliente.Nome = sqlDataReader["Nome"].ToString();
+                        cliente.DataNascimento = DateTime.Parse(sqlDataReader["DataNascimento"].ToString());
+                        cliente.Sexo = Convert.ToChar(sqlDataReader["Sexo"].ToString());
+                        cliente.EstadoCivil = sqlDataReader["EstadoCivil"].ToString();
+                        cliente.RG = sqlDataReader["RG"].ToString();
+                        cliente.CPF = sqlDataReader["CPF"].ToString();
+                        cliente.Endereco = sqlDataReader["Endereco"].ToString();
+                        cliente.Cidade = sqlDataReader["Cidade"].ToString();
+                        cliente.CEP = sqlDataReader["CEP"].ToString();
+                        cliente.Estado = sqlDataReader["Estado"].ToString();
+                        cliente.Telefone = sqlDataReader["Telefone"].ToString();
+                        cliente.Celular = sqlDataReader["Celular"].ToString();
+                        cliente.Email = sqlDataReader["Email"].ToString();
+                        cliente.SituacaoPagamentos = sqlDataReader["SituacaoPagamentos"].ToString();
                     }
                 }
                 catch (Exception e)
@@ -264,7 +264,7 @@ namespace DAL
                     throw new Exception($"Falha ao executar a query. Retorno: {e.Message}");
                 }
             }
-            return pessoa;
+            return cliente;
         }
 
         public List<Pessoa> ListarTodosClientes()
@@ -310,7 +310,7 @@ namespace DAL
             }
         }
 
-         public List<Pessoa> ListarTodosFuncionarios()
+        public List<Pessoa> ListarTodosFuncionarios()
         {
             Pessoa funcionario = null;
             List<Pessoa> funcionarios = new List<Pessoa>();
@@ -351,6 +351,225 @@ namespace DAL
 
                 return funcionarios;
             }
+        }
+
+        public Cliente PesquisarClientePeloCPF(string CPF)
+        {
+            Cliente cliente = null;
+            var queryPesquisarCliente = $@"SELECT * 
+                                               FROM Pessoas 
+                                               WHERE Funcionario = 'N'
+                                               AND CPF = @cpf
+                                              ";
+
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    sqlConnection.Open();
+                }
+                catch (System.Exception)
+                {
+                    throw new Exception("Falha ao conectar no banco de dados!");
+                }
+                try
+                {
+                    SqlCommand sqlCommand = new SqlCommand(queryPesquisarCliente, sqlConnection);
+                    SqlDataReader sqlDataReader;
+                    sqlCommand.Parameters.AddWithValue("@cpf", CPF);
+                    sqlDataReader = sqlCommand.ExecuteReader();
+
+                    if (sqlDataReader.HasRows && sqlDataReader.Read())
+                    {
+                        cliente = new Cliente();
+                        cliente.CodigoPessoa = Convert.ToInt32(sqlDataReader["CodigoPessoa"].ToString());
+                        cliente.Nome = sqlDataReader["Nome"].ToString();
+                        cliente.DataNascimento = DateTime.Parse(sqlDataReader["DataNascimento"].ToString());
+                        cliente.Sexo = Convert.ToChar(sqlDataReader["Sexo"].ToString());
+                        cliente.EstadoCivil = sqlDataReader["EstadoCivil"].ToString();
+                        cliente.RG = sqlDataReader["RG"].ToString();
+                        cliente.CPF = sqlDataReader["CPF"].ToString();
+                        cliente.Endereco = sqlDataReader["Endereco"].ToString();
+                        cliente.Cidade = sqlDataReader["Cidade"].ToString();
+                        cliente.CEP = sqlDataReader["CEP"].ToString();
+                        cliente.Estado = sqlDataReader["Estado"].ToString();
+                        cliente.Telefone = sqlDataReader["Telefone"].ToString();
+                        cliente.Celular = sqlDataReader["Celular"].ToString();
+                        cliente.Email = sqlDataReader["Email"].ToString();
+                        cliente.SituacaoPagamentos = sqlDataReader["SituacaoPagamentos"].ToString();
+                    }
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Falha ao executar a query. Retorno: {e.Message}");
+                }
+            }
+            return cliente;
+        }
+
+        public void AtualizarSituacaoDoCliente(int codigoPessoa, bool clienteDevendo)
+        {
+            string devendo = clienteDevendo ? "Devendo" : "OK";
+
+            var queryAtualizarSituacaoCliente = $"UPDATE Pessoas SET SituacaoPagamentos = '{devendo}' WHERE CodigoPessoa = @codigoPessoa";
+
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    sqlConnection.Open();
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Falha ao conectar no banco de dados.");
+                }
+
+                try
+                {
+                    SqlCommand sqlCommand = new SqlCommand(queryAtualizarSituacaoCliente, sqlConnection);
+                    sqlCommand.Parameters.AddWithValue("@codigoPessoa", codigoPessoa);
+                    sqlCommand.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Falha ao executar a query. Retorno: {e.Message}");
+                }
+            }
+        }
+
+        public string RecuperarSituacaoCliente(int codigoCliente)
+        {
+            var situacaoCliente = string.Empty;
+            var queryRecuperarCodigoSituacao = $@"SELECT 
+                                                    SituacaoPagamentos
+                                                  FROM Pessoas 
+                                                  WHERE Funcionario = 'N'
+                                                  AND CodigoPessoa = @codigoCliente
+                                              ";
+
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    sqlConnection.Open();
+                }
+                catch (System.Exception)
+                {
+                    throw new Exception("Falha ao conectar no banco de dados!");
+                }
+                try
+                {
+                    SqlCommand sqlCommand = new SqlCommand(queryRecuperarCodigoSituacao, sqlConnection);
+                    SqlDataReader sqlDataReader;
+                    sqlCommand.Parameters.AddWithValue("@codigoCliente", codigoCliente);
+                    sqlDataReader = sqlCommand.ExecuteReader();
+
+                    if (sqlDataReader.HasRows && sqlDataReader.Read())
+                    {
+                        situacaoCliente = sqlDataReader["SituacaoPagamentos"].ToString();
+
+                    }
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Falha ao executar a query. Retorno: {e.Message}");
+                }
+            }
+            return situacaoCliente;
+        }
+
+        public int RecuperarCodigoDoFuncionarioPeloNome(string nome)
+        {
+            var codigoFuncionario = -1;
+            var queryRecuperarCodigoFuncionario = $@"SELECT 
+                                                    CodigoPessoa
+                                                  FROM Pessoas 
+                                                  WHERE Funcionario = 'Y'
+                                                  AND Nome LIKE @nomePessoa
+                                                ";
+
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    sqlConnection.Open();
+                }
+                catch (System.Exception)
+                {
+                    throw new Exception("Falha ao conectar no banco de dados!");
+                }
+                try
+                {
+                    SqlCommand sqlCommand = new SqlCommand(queryRecuperarCodigoFuncionario, sqlConnection);
+                    SqlDataReader sqlDataReader;
+                    sqlCommand.Parameters.AddWithValue("@nomePessoa", $"%{nome}%");
+                    sqlDataReader = sqlCommand.ExecuteReader();
+
+                    if (sqlDataReader.HasRows && sqlDataReader.Read())
+                    {
+                        codigoFuncionario = Convert.ToInt32(sqlDataReader["CodigoPessoa"].ToString());
+                    }
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Falha ao executar a query. Retorno: {e.Message}");
+                }
+            }
+            return codigoFuncionario;
+        }
+
+        public List<HistoricoLocacaoCliente> RecuperarHistoricoLocacaoClientes()
+        {
+            HistoricoLocacaoCliente historicoLocacaoCliente = null;
+            List<HistoricoLocacaoCliente> historicoLocacaoClientes = new List<HistoricoLocacaoCliente>();
+
+            var queryHistoricoLocacoesClientes = $@"
+                                            SELECT 
+                                                T2.Nome,
+                                                T0.DataAtual,
+                                                T1.DataEntrega,
+                                                T0.ValorPago,
+                                                T0.DataPrevista
+                                            FROM Locacoes T0
+                                                INNER JOIN Devolucoes T1 ON T0.CodigoLocacao= T1.CodigoLocacao
+                                                INNER JOIN Pessoas T2 ON T0.CodigoCliente = T0.CodigoCliente
+                                            WHERE T2.Funcionario = 'N'
+                                              ";
+
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    sqlConnection.Open();
+                }
+                catch (System.Exception)
+                {
+                    throw new Exception("Falha ao conectar no banco de dados!");
+                }
+                try
+                {
+                    SqlCommand sqlCommand = new SqlCommand(queryHistoricoLocacoesClientes, sqlConnection);
+                    SqlDataReader sqlDataReader;
+                    sqlDataReader = sqlCommand.ExecuteReader();
+
+                    if (sqlDataReader.HasRows && sqlDataReader.Read())
+                    {
+                        historicoLocacaoCliente = new HistoricoLocacaoCliente();
+                        historicoLocacaoCliente.Nome = sqlDataReader["Nome"].ToString();
+                        historicoLocacaoCliente.DataLocacao = Convert.ToDateTime(sqlDataReader["DataAtual"].ToString());
+                        historicoLocacaoCliente.DataLocacao = Convert.ToDateTime(sqlDataReader["DataEntrega"].ToString());
+                        historicoLocacaoCliente.ValorPago = Convert.ToDecimal(sqlDataReader["ValorPago"].ToString());
+                        historicoLocacaoCliente.DataLocacao = Convert.ToDateTime(sqlDataReader["DataPrevista"].ToString());
+                        historicoLocacaoClientes.Add(historicoLocacaoCliente);
+
+                    }
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Falha ao executar a query. Retorno: {e.Message}");
+                }
+            }
+            return historicoLocacaoClientes;
         }
     }
 }

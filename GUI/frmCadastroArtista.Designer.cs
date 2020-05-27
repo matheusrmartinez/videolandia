@@ -30,9 +30,6 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvFilmesArtista = new System.Windows.Forms.DataGridView();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Filme = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NomedoPersonagem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPesquisarNomeAtor = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
@@ -51,6 +48,8 @@
             this.txtPaisNascimento = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pbArtista = new System.Windows.Forms.PictureBox();
+            this.Filme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomedoPersonagem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFilmesArtista)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -73,7 +72,6 @@
             this.dgvFilmesArtista.AllowUserToDeleteRows = false;
             this.dgvFilmesArtista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFilmesArtista.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Codigo,
             this.Filme,
             this.NomedoPersonagem});
             this.dgvFilmesArtista.Location = new System.Drawing.Point(6, 29);
@@ -81,28 +79,6 @@
             this.dgvFilmesArtista.ReadOnly = true;
             this.dgvFilmesArtista.Size = new System.Drawing.Size(382, 178);
             this.dgvFilmesArtista.TabIndex = 7;
-            // 
-            // Codigo
-            // 
-            this.Codigo.DataPropertyName = "CodigoGenero";
-            this.Codigo.HeaderText = "Código";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            this.Codigo.Width = 124;
-            // 
-            // Filme
-            // 
-            this.Filme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Filme.DataPropertyName = "Filme";
-            this.Filme.HeaderText = "Filme";
-            this.Filme.Name = "Filme";
-            this.Filme.ReadOnly = true;
-            // 
-            // NomedoPersonagem
-            // 
-            this.NomedoPersonagem.HeaderText = "Nome do Personagem";
-            this.NomedoPersonagem.Name = "NomedoPersonagem";
-            this.NomedoPersonagem.ReadOnly = true;
             // 
             // btnPesquisarNomeAtor
             // 
@@ -265,6 +241,22 @@
             this.pbArtista.TabIndex = 0;
             this.pbArtista.TabStop = false;
             // 
+            // Filme
+            // 
+            this.Filme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Filme.DataPropertyName = "Titulo";
+            this.Filme.HeaderText = "Filme";
+            this.Filme.Name = "Filme";
+            this.Filme.ReadOnly = true;
+            this.Filme.Width = 239;
+            // 
+            // NomedoPersonagem
+            // 
+            this.NomedoPersonagem.DataPropertyName = "NomePersonagem";
+            this.NomedoPersonagem.HeaderText = "Nome do Personagem";
+            this.NomedoPersonagem.Name = "NomedoPersonagem";
+            this.NomedoPersonagem.ReadOnly = true;
+            // 
             // frmCadastroArtista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -304,9 +296,6 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvFilmesArtista;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Filme;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NomedoPersonagem;
         private System.Windows.Forms.Button btnPesquisarNomeAtor;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnRemover;
@@ -325,5 +314,7 @@
         private System.Windows.Forms.TextBox txtPaisNascimento;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.PictureBox pbArtista;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Filme;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomedoPersonagem;
     }
 }
